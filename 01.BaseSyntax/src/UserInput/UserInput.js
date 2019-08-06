@@ -1,10 +1,11 @@
 import React from 'react';
 
-const userInput = (props) => {
+const UserInput = (props) => {
     const inputStyle = {
         border: '2px solid red'
     };
 
+    // for multiline return expression put everything in round brackets
     return <input 
         type="text" 
         style={inputStyle}
@@ -12,4 +13,4 @@ const userInput = (props) => {
         value={props.currentName} />;
 };
 
-export default userInput;
+export default UserInput;
