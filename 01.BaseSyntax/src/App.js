@@ -1,12 +1,15 @@
 import React, { Component } from 'react';
 import './App.css';
 
+// import with capital letter
 import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 
 class App extends Component {
+  // everytime the state is changed the component will rerender
   state = {
-    username: 'supermax'
+    username: 'supermax',
+    someOtherProp: []
   }
 
   usernameChangedHandler = (event) => {
@@ -28,12 +31,16 @@ class App extends Component {
           <li>Add two-way-binding to your input (in UserInput) to also display the starting username</li>
           <li>Add styling of your choice to your components/ elements in the components - both with inline styles and stylesheets</li>
         </ol>
+
+        {/* React components should always start with capital letter */}
         <UserInput 
           changed={this.usernameChangedHandler} 
           currentName={this.state.username} />
         <UserOutput userName={this.state.username} />
         <UserOutput userName={this.state.username} />
         <UserOutput userName="Max" />
+
+        <UserOutput>Content between component tags goes as props.children in the component</UserOutput>
       </div>
     );
   }
