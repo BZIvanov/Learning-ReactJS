@@ -1,5 +1,5 @@
 import React from 'react';
-
+// css extension has to be also specified for files different than js
 import './UserOutput.css';
 
 const UserOutput = (props) => {

@@ -12,6 +12,7 @@ class App extends Component {
     someOtherProp: []
   }
 
+  // with arrow function we dont need to bind this, we will keep it
   usernameChangedHandler = (event) => {
     this.setState({username: event.target.value});
   }
