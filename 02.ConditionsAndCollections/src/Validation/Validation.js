@@ -1,6 +1,6 @@
 import React from 'react';
 
-const validation = ( props ) => {
+const Validation = ( props ) => {
     let validationMessage = 'Text long enough';
 
     if (props.inputLength <= 5) {
@@ -14,4 +14,4 @@ const validation = ( props ) => {
     );
 };
 
-export default validation;
+export default Validation;
