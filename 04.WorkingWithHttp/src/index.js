@@ -2,16 +2,24 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
-//import registerServiceWorker from './registerServiceWorker';
 import axios from 'axios';
 
+// AXIOS DEFAULT SETTINGS
+// with the below row we can set default baseUrl and then when making requests we dont need to specify it on each request
 axios.defaults.baseURL = 'https://jsonplaceholder.typicode.com';
+// and this is how we set some headers for all requests
 axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
+// and this is how we set something for POST requests only for example
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
+
+// INTERCEPTORS
+// the interceptor will be used for all the requests for the application
 axios.interceptors.request.use(request => {
     console.log(request);
-    // Edit request config
+    // Edit request config or whatever you want here
+
+    // it is important to return the request so it can continue, otherwise it will be blocked
     return request;
 }, error => {
     console.log(error);
@@ -20,7 +28,7 @@ axios.interceptors.request.use(request => {
 
 axios.interceptors.response.use(response => {
     console.log(response);
-    // Edit request config
+    // Edit response config
     return response;
 }, error => {
     console.log(error);
@@ -28,4 +36,3 @@ axios.interceptors.response.use(response => {
 });
 
 ReactDOM.render( <App />, document.getElementById( 'root' ) );
-//registerServiceWorker();

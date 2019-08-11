@@ -40,7 +40,6 @@ class App extends Component {
         <UserOutput userName={this.state.username} />
         <UserOutput userName={this.state.username} />
         <UserOutput userName="Max" />
-
         <UserOutput>Content between component tags goes as props.children in the component</UserOutput>
       </div>
     );

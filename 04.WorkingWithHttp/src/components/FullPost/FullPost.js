@@ -8,8 +8,11 @@ class FullPost extends Component {
         loadedPost: null
     }
 
+    // we use componentDidUpdate so we can make requests when the props are changed
     componentDidUpdate () {
         if ( this.props.id ) {
+            /* below if is needed to avoid infinite loop because when we set the state component will update and will make request again and set state again...
+            Basically we check if we have not post or we have different id we selected and only in that case we make request and we will not run in infinite loop because of the id will be the same */
             if ( !this.state.loadedPost || (this.state.loadedPost && this.state.loadedPost.id !== this.props.id) ) {
                 axios.get( '/posts/' + this.props.id )
                     .then( response => {
@@ -29,6 +32,7 @@ class FullPost extends Component {
 
     render () {
         let post = <p style={{ textAlign: 'center' }}>Please select a Post!</p>;
+        // below if means we selected a post, but we are still waiting for the request to be completed
         if ( this.props.id ) {
             post = <p style={{ textAlign: 'center' }}>Loading...!</p>;
         }
