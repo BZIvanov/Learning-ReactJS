@@ -15,6 +15,7 @@ class Blog extends Component {
     }
 
     componentDidMount () {
+        // axios is configured so we dont need to write the full path just the last part of the endpoint. The base url is in the configuration
         axios.get( '/posts' )
             .then( response => {
                 const posts = response.data.slice(0, 4);
