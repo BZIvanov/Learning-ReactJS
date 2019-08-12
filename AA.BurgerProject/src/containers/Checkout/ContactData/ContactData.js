@@ -149,6 +149,7 @@ class ContactData extends Component {
     }
 
     inputChangedHandler = (event, inputIdentifier) => {
+        // in both constants below we are deeply cloning the object
         const updatedOrderForm = {
             ...this.state.orderForm
         };

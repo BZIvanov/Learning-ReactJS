@@ -102,3 +102,5 @@ const newPerson = {
 }
 console.log(newPerson); // results in { name: "Ina", age: 28 }
 ```
+
+!!! Something VERY important. Object with spread operator are not cloned in a new object deeply, meaning that nested object will not get new reference, but will point to the same nested object. If that is your case you need to clone deeply manually.
