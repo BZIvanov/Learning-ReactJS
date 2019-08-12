@@ -13,6 +13,7 @@ class FullPost extends Component {
         this.loadData();
     }
 
+    // here we call again loadData because when we are in the component just changing the url id will not trigger component to rerender and request the new selected post
     componentDidUpdate() {
         this.loadData();
     }

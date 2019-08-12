@@ -92,6 +92,8 @@ class BurgerBuilder extends Component {
     }
 
     purchaseContinueHandler = () => {
+        // alert('You continue!');
+        
         const queryParams = [];
         for (let i in this.state.ingredients) {
             queryParams.push(encodeURIComponent(i) + '=' + encodeURIComponent(this.state.ingredients[i]));
@@ -136,7 +138,7 @@ class BurgerBuilder extends Component {
         if ( this.state.loading ) {
             orderSummary = <Spinner />;
         }
-        
+        // {salad: true, meat: false, ...}
         return (
             <Aux>
                 <Modal show={this.state.purchasing} modalClosed={this.purchaseCancelHandler}>

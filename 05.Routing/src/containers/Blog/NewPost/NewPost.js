@@ -26,6 +26,7 @@ class NewPost extends Component {
         axios.post( '/posts', data )
             .then( response => {
                 console.log( response );
+                // replace will replace the last on the brwoser history stack while push will add to the stack and we can go back
                 this.props.history.replace('/posts');
                 // this.setState( { submitted: true } );
             } );
@@ -34,6 +35,7 @@ class NewPost extends Component {
     render () {
         let redirect = null;
         if (this.state.submitted) {
+            // Redirect is a component which when rendered we get redirect so in most cases we will render it conditionally
             redirect = <Redirect to="/posts" />;
         }
         return (

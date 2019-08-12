@@ -12,6 +12,7 @@ class Posts extends Component {
     }
 
     componentDidMount () {
+        // with routing in the props we dont just get our props we specified but many more provided by the route
         console.log( this.props );
         axios.get( '/posts' )
             .then( response => {
