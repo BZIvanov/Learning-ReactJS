@@ -9,6 +9,7 @@ export const saveResult = ( res ) => {
 }
 
 export const storeResult = ( res ) => {
+    // getState is additional property provided by thunk
     return (dispatch, getState) => {
         setTimeout( () => {
             // const oldCounter = getState().ctr.counter;
