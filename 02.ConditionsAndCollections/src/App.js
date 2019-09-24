@@ -8,6 +8,7 @@ class App extends Component {
     userInput: ''
   }
 
+  // here we can get more parameters than just event, but the event will always be the first one
   inputChangedHandler = ( event ) => {
     this.setState( { userInput: event.target.value } );
   }
@@ -39,6 +40,7 @@ class App extends Component {
         </ol>
         <p>Hint: Keep in mind that JavaScript strings are basically arrays!</p>
         <hr />
+
         <input
           type="text"
           onChange={this.inputChangedHandler}

@@ -2,6 +2,7 @@ import React, { PureComponent } from 'react';
 
 import Person from './Person/Person';
 
+// PureComponent will check all props for changes and will rerender if necessary if there are changes
 class Persons extends PureComponent {
   // static getDerivedStateFromProps(props, state) {
   //   console.log('[Persons.js] getDerivedStateFromProps');
@@ -12,6 +13,7 @@ class Persons extends PureComponent {
   //   console.log('[Persons.js] componentWillReceiveProps', props);
   // }
 
+  // instead manually checking for all props we can use PureComponent
   // shouldComponentUpdate(nextProps, nextState) {
   //   console.log('[Persons.js] shouldComponentUpdate');
   //   if (

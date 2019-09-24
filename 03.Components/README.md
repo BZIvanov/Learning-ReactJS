@@ -1,7 +1,7 @@
 ## General setup for Context
 
 1. Creating the context.
-On the root level folder create a folder for the context(just a suggestion). It could be comething like the following code:
+On the root level folder create a folder for the context(just a suggestion). It could be something like the following code:
 
 ```javascript
 // folder: src/context/context.js or something like that, up to you

@@ -9,6 +9,7 @@ const cockpit = props => {
 
   console.log(authContext.authenticated);
 
+  // if we use the second argument to useEffect to be an empty array, useEffect will run only once
   useEffect(() => {
     console.log('[Cockpit.js] useEffect');
     // Http request...
@@ -55,4 +56,5 @@ const cockpit = props => {
   );
 };
 
+// React.memo is using for optimization, because this component will rerender only if it's props are changed
 export default React.memo(cockpit);
