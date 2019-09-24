@@ -63,6 +63,7 @@ class App extends Component {
     const persons = [...this.state.persons];
     persons[personIndex] = person;
 
+    // this is the correct way to update state if it depends on previous state
     this.setState((prevState, props) => {
       return {
         persons: persons,

@@ -1,6 +1,6 @@
 ## Global fonts
 
-Global fonts can be added in the index.html file in the public folder. And then you can use it in your css file.
+Global fonts can be added in the index.html file in the public folder. And then you can use it in your css file. Or you can also use the index.css file.
 For example:
 ```html
 <head>
@@ -30,3 +30,8 @@ ComponentName.propTypes = {
 ## Media queries
 
 Properties in the media queries are merged, meaning that when using another media css rules we only need to specify what to be different, not also rewriting what is already specified.
+
+## Events
+
+Click [here](https://reactjs.org/docs/events.html#supported-events) for a list of events you can use
+
