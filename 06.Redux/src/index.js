@@ -1,15 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-// createStore is a method which we need to create the store
-import { createStore } from 'redux';
+import App from './App';
+
 // we need the Provider to make the connection between our app and redux
 import { Provider } from 'react-redux';
-
-import App from './App';
+// createStore is a method which we need to create the store
+import { createStore } from 'redux';
 // here will be our reducer logic which is updating the store
 import reducer from './store/reducer';
-
-
 // we create the store before our application and provide the reducer
 const store = createStore(reducer);
 

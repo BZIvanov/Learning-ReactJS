@@ -17,6 +17,7 @@ class App extends Component {
     this.setState({username: event.target.value});
   }
 
+  // render method is required for class components, because it will return the html we want to be displayed
   render() {
     return (
       <div className="App">
