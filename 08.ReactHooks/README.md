@@ -7,6 +7,7 @@
 1. useState takes as an argument the initial state. Initial state could be anything like array, object, string, number, boolean etc.
 2. useState returns 2 values. The first is the current state and the second is a function with which we can update the state.
 3. In a component we can use useState multiple times and it is recomended every data to be in a different useState, because different states in a single useState are not merged.
+4. For the set functions returned as second parameter from useState, we can get the previous state as function callback, where we will get the previous state as function parameter.
 
 ```javascript
 import React, { useState } from 'react';
@@ -19,7 +20,9 @@ const Todo = props => {
         setTodoName(event.target.value);
     };
     const todoAddHandler = () => {
-        setTodoList(todoList.concat(todoName));
+        setTodoList(prevTodos => {
+            return [...prevTodos, todoName];
+        });
     };
 
     return (
@@ -178,4 +181,23 @@ const Todos = (props) => {
 
 export default Todos;
 ```
+## useRef hook
 
+With useRef we can get refference to some element and store the reference in a variable by specifing to which element with ref attribute. To get the actual element we must use the .current method and then in this example the value comes from the default value attribute on the input element.
+
+```javascript
+import React, { useRef } from 'react';
+
+const myEl = useRef();
+
+const handleIt = (e) => {
+    const someText = myEl.current.value;
+}
+
+return (
+    <>
+        <input ref={myEl} type="text" />
+        <button onClick={handleIt} >Click me</button>
+    </>
+);
+```
