@@ -3,7 +3,7 @@
 Detailed info can be found here: https://reacttraining.com/react-router/web/guides/quick-start
 
 Routing is not included in React by default. So we need to install it additionally.
-Ton install it run in the terminal the following command:
+To install it run in the terminal the following command:
 
 ```
 npm install react-router-dom --save
@@ -14,7 +14,7 @@ npm install react-router-dom --save
 
 - path - path is the path from the url
 - exact - means to match the exact url in the browser. When set it means it is set to true
-- render - is for what to be rendered when the route is matched
+- render - is for what to be rendered when the route is matched. Render is useful to use, when we want to provide props to the component we want to render
 - component - the specified component will be rendered when the route matches
 
 ```javascript
@@ -24,6 +24,8 @@ import { Route } from 'react-router-dom';
 <Route path="/" exact render={() => <h1>I am home component</h1>} />
 // ex.2
 <Route path="/posts" component={Posts} />
+// ex.3 here is how we add additional props
+<Route path="/posts" render={(props) => <Posts {...props} someMore={someMore} />}>
 
 ```
 

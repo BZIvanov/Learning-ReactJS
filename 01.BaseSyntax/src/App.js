@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import './App.css';
 
 // import with capital letter
 import UserInput from './UserInput/UserInput';
@@ -20,7 +19,7 @@ class App extends Component {
   // render method is required for class components, because it will return the html we want to be displayed
   render() {
     return (
-      <div className="App">
+      <div>
         <ol>
           <li>Create TWO new components: UserInput and UserOutput</li>
           <li>UserInput should hold an input element, UserOutput two paragraphs</li>
