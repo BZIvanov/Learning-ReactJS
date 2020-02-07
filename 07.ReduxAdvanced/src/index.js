@@ -34,4 +34,8 @@ const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 // logger is our custom middleware and thunk is installed one used for handling async code
 const store = createStore(rootReducer, composeEnhancers(applyMiddleware(logger, thunk)));
 
-ReactDOM.render(<Provider store={store}><App /></Provider>, document.getElementById('root'));
+ReactDOM.render(
+  <Provider store={store}>
+    <App />
+  </Provider>,
+document.getElementById('root'));
