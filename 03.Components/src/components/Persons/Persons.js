@@ -4,38 +4,33 @@ import Person from './Person/Person';
 
 // PureComponent will check all props for changes and will rerender if necessary if there are changes
 class Persons extends PureComponent {
-  // static getDerivedStateFromProps(props, state) {
-  //   console.log('[Persons.js] getDerivedStateFromProps');
-  //   return state;
-  // }
+  static getDerivedStateFromProps(props, state) {
+    console.log('[Persons.js] getDerivedStateFromProps');
+    return state;
+  }
 
-  // componentWillReceiveProps(props) {
-  //   console.log('[Persons.js] componentWillReceiveProps', props);
-  // }
+  componentWillReceiveProps(props) {
+    console.log('[Persons.js] componentWillReceiveProps', props);
+  }
 
   // instead manually checking for all props we can use PureComponent
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   console.log('[Persons.js] shouldComponentUpdate');
-  //   if (
-  //     nextProps.persons !== this.props.persons ||
-  //     nextProps.changed !== this.props.changed ||
-  //     nextProps.clicked !== this.props.clicked
-  //   ) {
-  //     return true;
-  //   } else {
-  //     return false;
-  //   }
-  //   // return true;
-  // }
+  shouldComponentUpdate(nextProps, nextState) {
+    console.log('[Persons.js] shouldComponentUpdate');
+    if (
+      nextProps.persons !== this.props.persons ||
+      nextProps.changed !== this.props.changed ||
+      nextProps.clicked !== this.props.clicked
+    ) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
     console.log('[Persons.js] getSnapshotBeforeUpdate');
     return { message: 'Snapshot!' };
   }
-
-  // componentWillUpdate() {
-
-  // }
 
   componentDidUpdate(prevProps, prevState, snapshot) {
     console.log('[Persons.js] componentDidUpdate');

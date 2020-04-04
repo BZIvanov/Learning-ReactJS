@@ -12,6 +12,7 @@ class Person extends Component {
     this.inputElementRef = React.createRef();
   }
 
+  // naming contextType is required
   static contextType = AuthContext;
 
   componentDidMount() {

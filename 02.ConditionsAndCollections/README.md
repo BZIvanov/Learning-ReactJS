@@ -18,7 +18,7 @@ const persons = [...this.state.persons];
 persons.splice(2, 1);
 ```
 
-##  Lifecycle hooks
+##  Lifecycle methods
 
 ### Class based
 
@@ -35,7 +35,3 @@ persons.splice(2, 1);
 6. shouldComponentUpdate(nextProps, nextState) - used for performance optimizations, because with it we can cancel updating on some of the components
 
 7. componentDidUpdate() - 
-
-### Functional based
-
-1. useEffect - it will run for every render method.
