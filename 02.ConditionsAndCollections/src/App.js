@@ -20,6 +20,7 @@ class App extends Component {
   }
 
   render () {
+    // we can return wrapping html element from our component or an array like below. Array for react is valid as it is a single html element
     const charList = this.state.userInput.split('').map((ch, index) => {
       return <Char 
         character={ch} 

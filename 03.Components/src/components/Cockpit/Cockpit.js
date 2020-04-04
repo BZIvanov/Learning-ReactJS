@@ -12,10 +12,6 @@ const cockpit = props => {
   // if we use the second argument to useEffect to be an empty array, useEffect will run only once
   useEffect(() => {
     console.log('[Cockpit.js] useEffect');
-    // Http request...
-    // setTimeout(() => {
-    //   alert('Saved data to cloud!');
-    // }, 1000);
     toggleBtnRef.current.click();
     return () => {
       console.log('[Cockpit.js] cleanup work in useEffect');
@@ -28,8 +24,6 @@ const cockpit = props => {
       console.log('[Cockpit.js] cleanup work in 2nd useEffect');
     };
   });
-
-  // useEffect();
 
   const assignedClasses = [];
   let btnClass = '';

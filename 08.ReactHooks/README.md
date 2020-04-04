@@ -80,6 +80,10 @@ const Todo = props => {
             setTodoList(res);
         });
         return () => {
+            // this is the unmount phase, and it depends what we have in the dependency array.
+            // if it is an empty array it will run only once on unmount
+            // if no dependency array it will run on every update cycle
+            // if we have some parameter in our watch array it will run after change allowing us to the some follow up action
             console.log("I will be ran before the get request, exception is only the very first render of the component");
         };
     }, [todoList]);

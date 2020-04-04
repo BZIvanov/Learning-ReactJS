@@ -7,11 +7,7 @@ const Validation = ( props ) => {
         validationMessage = 'Text too short';
     }
 
-    return (
-        <div>
-            <p>{validationMessage}</p>
-        </div>
-    );
+    return <p>{validationMessage}</p>;
 };
 
 export default Validation;

@@ -25,14 +25,15 @@ class App extends Component {
     authenticated: false
   };
 
+  // this lifecycle method is called after the constructor
   static getDerivedStateFromProps(props, state) {
     console.log('[App.js] getDerivedStateFromProps', props);
     return state;
   }
 
-  // componentWillMount() {
-  //   console.log('[App.js] componentWillMount');
-  // }
+  componentWillMount() {
+    console.log('[App.js] componentWillMount');
+  }
 
   componentDidMount() {
     console.log('[App.js] componentDidMount');
@@ -130,7 +131,6 @@ class App extends Component {
         </AuthContext.Provider>
       </Aux>
     );
-    // return React.createElement('div', {className: 'App'}, React.createElement('h1', null, 'Does this work now?'));
   }
 }
 
