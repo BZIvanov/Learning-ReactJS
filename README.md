@@ -12,3 +12,7 @@ On there we can see how much of the code was used when running the page. This is
 ## Animations package
 
 **react-addons-css-transition-group** - is a nice package for animating react elements, for example when rendering a list or removing items 1 by 1.
+
+## Scoped styles
+
+For scoped styles checkout css modules for React.

@@ -9,6 +9,7 @@ import asyncComponent from '../../hoc/asyncComponent';
 const Streets = React.lazy(() => import('./Streets/Streets'));
 
 // this is how we will lazy load the component
+// below const with async component will be called only when we try to use it, meaning when the Route hits it
 const AsyncNewPost = asyncComponent(() => {
   return import('./NewPost/NewPost');
 });
@@ -43,7 +44,7 @@ class Blog extends Component {
         </header>
  
         <Switch>
-          {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}
+          {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}   {/*this line is example of guard and lazy loading the old fashion way*/}
           <Route path="/posts" exact component={Posts} />
           <Route render={() => <h1>Not found. Without the path it will always match</h1>}/>
           {/* <Redirect from="/" to="/posts" /> */}

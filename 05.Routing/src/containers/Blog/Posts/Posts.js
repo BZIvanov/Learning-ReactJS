@@ -30,6 +30,7 @@ class Posts extends Component {
       } );
   }
 
+  // this is how we navigate programmatically
   postSelectedHandler = ( id ) => {
     // this.props.history.push({pathname: '/posts/' + id});
     this.props.history.push( '/posts/' + id );
@@ -56,6 +57,8 @@ class Posts extends Component {
       <section className="Posts">
         {posts}
       </section>
+      {/* Below is example of nested routing. Basically Routing works in a way, that if path condition is true, the Route line of code will be replaced with the specified component.
+      Of course url for outer and nested routes should not conflict */}
       <Route path={this.props.match.url + '/:id'} exact component={FullPost} />
     </div>
   );

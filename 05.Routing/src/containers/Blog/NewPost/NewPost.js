@@ -13,6 +13,7 @@ class NewPost extends Component {
   }
 
   componentDidMount () {
+    // below is example of guard
     // If unauth => this.props.history.replace('/posts');
   }
 
@@ -25,6 +26,7 @@ class NewPost extends Component {
     axios.post( '/posts', data )
       .then( response => {
         // replace will replace the last on the brwoser history stack while push will add to the stack and we can go back
+        // history push and history replace are alternatives for using Redirect component
         this.props.history.replace('/posts');
         // this.setState( { submitted: true } );
       } );

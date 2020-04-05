@@ -9,6 +9,9 @@ To install it run in the terminal the following command:
 npm install react-router-dom --save
 ```
 
+## Note about SPA
+
+All the routing is handled by javascript and only our app knows about the paths we defined. So when using a server where our app is hosted we should always refer to index.html, because the server desnt know about our routes and can not handle them.
 
 ## Route
 
@@ -30,6 +33,7 @@ import { Route } from 'react-router-dom';
 ```
 
 Another Note on Route: Route will add additional props to the component loaded with Route, but child components of that component will not get that props which provide information about the routing. For that we can use special high order component called **withRouter** imported from react-router-dom.
+We use the *withRouter* hoc on the child component for which we need the props.
 
 ## Link
 
