@@ -10,6 +10,7 @@ const withErrorHandler = ( WrappedComponent, axios ) => {
         }
 
         componentWillMount () {
+            // we store the interceptors on class properties so we can have reference to them to remove in component unmount phase
             this.reqInterceptor = axios.interceptors.request.use( req => {
                 this.setState( { error: null } );
                 return req;
@@ -19,6 +20,7 @@ const withErrorHandler = ( WrappedComponent, axios ) => {
             } );
         }
 
+        // it is important to clear our instances on unmount so we dont create memory leaks
         componentWillUnmount () {
             axios.interceptors.request.eject( this.reqInterceptor );
             axios.interceptors.response.eject( this.resInterceptor );
