@@ -15,6 +15,7 @@ class Counter extends Component {
         <CounterControl label="Add 10" clicked={this.props.onAddCounter}  />
         <CounterControl label="Subtract 15" clicked={this.props.onSubtractCounter}  />
         <hr />
+        {/* here we provide as argument ctr, because in the indiviudal reducers we dont have access to the global state so we provide the state as property */}
         <button onClick={() => this.props.onStoreResult(this.props.ctr)}>Store Result</button>
         <ul>
           {this.props.storedResults.map(strResult => (
@@ -35,7 +36,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    // here we execute our actions with round brackets
+    // for the dispatch the argument is object which we create in a function for easier usage
     onIncrementCounter: () => dispatch(actionCreators.increment()),
     onDecrementCounter: () => dispatch(actionCreators.decrement()),
     onAddCounter: () => dispatch(actionCreators.add(10)),
