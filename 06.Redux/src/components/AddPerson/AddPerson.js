@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 
 class AddPerson extends Component {
+  // in this component we will combine usage of local state and redux state, because we dont want to use redux for each letter input
   state = {
     name: '',
     age: ''
@@ -16,7 +17,7 @@ class AddPerson extends Component {
 
   render () {
     return (
-      <div className="AddPerson">
+      <div>
         <input 
           type="text" 
           placeholder="Name" 

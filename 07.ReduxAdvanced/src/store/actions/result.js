@@ -1,10 +1,11 @@
 import * as actionTypes from './actionTypes';
 
-export const saveResult = ( res ) => {
-  // const updatedResult = res * 2;
+const saveResult = ( res ) => {
+  // below line is example of custom transformation before we save data to the store
+  const updatedResult = res * 2;
   return {
     type: actionTypes.STORE_RESULT,
-    result: res
+    result: updatedResult
   };
 }
 
@@ -12,8 +13,10 @@ export const storeResult = ( res ) => {
   // getState is additional property provided by thunk. Because of thunk here we can return function with async code, otherwise it had to be an object
   return (dispatch, getState) => {
     setTimeout( () => {
-      // const oldCounter = getState().ctr.counter;
-      // console.log(oldCounter);
+      // with getState here we can get the previous state before we update it in case we need that
+      const oldCounter = getState().ctr.counter;
+      console.log(oldCounter);
+
       dispatch(saveResult(res));
     }, 2000 );
   }
