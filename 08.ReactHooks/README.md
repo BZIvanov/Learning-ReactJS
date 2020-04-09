@@ -1,5 +1,6 @@
 # Hooks
 1. Hooks have to be placed on the top level of the component, not nested in something. For example do not use in another function or in a if statement.
+2. Custom hooks - naming must always start with use... Custom hooks work in a way that they provide us with our custom logic, meaning that every component using our custom hook gets individual snapshot of the hook, so using the same hook it is different for each component.
 
 ---
 
@@ -159,21 +160,22 @@ export default LoginForm;
 ```javascript
 import React, { useEffect, useReducer } from 'react';
 
+// the component will be rerendered, whenever the reducer returns new state
+const todoListReducer = (state, action) => {
+    switch (action.type) {
+    case 'ADD':
+        return state.concat(action.payload);
+    case 'SET':
+        return action.payload;
+    case 'REMOVE':
+        return state.filter(todo => todo.id !== action.payload);
+    default:
+        return state;
+    }
+};
+
 const Todos = (props) => {
-
-    const todoListReducer = (state, action) => {
-        switch (action.type) {
-        case 'ADD':
-            return state.concat(action.payload);
-        case 'SET':
-            return action.payload;
-        case 'REMOVE':
-            return state.filter(todo => todo.id !== action.payload);
-        default:
-            return state;
-        }
-    };
-
+    // the second parameter is the starting state
     const [todoList, dispatch] = useReducer(todoListReducer, []);
 
     useEffect(() => {
@@ -205,3 +207,7 @@ return (
     </>
 );
 ```
+
+## useCallback hook
+
+One good usage of useCallback is with useEffect. For example if we have dependency in useEffect, which is a function, everytime the component which holds the function is rerendered, the function will be recreated and will be a new one. So we will end up with useEffect being called again and again. With the help of useCallback we can put our function in a useCallback hook and we will keep it the same through different rerenders and so we can safely use a function as dependency on our useEffect. This solution of course will also help with any reference type value, so we can make sure it will not be recreated everytime.

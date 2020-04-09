@@ -1,34 +1,18 @@
-import React, { useState } from 'react';
+import React, { useContext } from 'react';
 
-import Todo from './components/Todo';
-import Header from './components/Header';
+import Ingredients from './components/Ingredients/Ingredients';
 import Auth from './components/Auth';
-import AuthContext from './auth-context';
+import { AuthContext } from './context/auth-context';
 
-const app = props => {
-  const [page, setPage] = useState('auth');
-  const [authStatus, setAuthStatus] = useState(false);
+const App = props => {
+  const authContext = useContext(AuthContext);
 
-  const switchPage = pageName => {
-    setPage(pageName);
-  };
+  let content = <Auth />;
+  if (authContext.isAuth) {
+    content = <Ingredients />;
+  }
 
-  const login = () => {
-    setAuthStatus(true);
-  };
-
-  return (
-    <div className="App">
-      <AuthContext.Provider value={{ status: authStatus, login: login }}>
-        <Header
-          onLoadTodos={switchPage.bind(this, 'todos')}
-          onLoadAuth={switchPage.bind(this, 'auth')}
-        />
-        <hr />
-        {page === 'auth' ? <Auth /> : <Todo />}
-      </AuthContext.Provider>
-    </div>
-  );
+  return content;
 };
 
-export default app;
+export default App;
