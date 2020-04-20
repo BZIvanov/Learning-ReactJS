@@ -54,6 +54,7 @@ import React, { useState, useEffect } from 'react';
 const Todo = (props) => {
   const [todoList, setTodoList] = useState([]);
 
+  // if using async/await don't use async on the next line. Use another function inside
   useEffect(() => {
     axios.get('https://some-url/todos').then((res) => {
       setTodoList(res);
