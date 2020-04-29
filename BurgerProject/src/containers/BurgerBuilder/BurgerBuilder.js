@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
-import { connect, useDispatch, useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
@@ -11,40 +11,37 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
 import axios from '../../axios-orders';
 
-const burgerBuilder = props => {
-  // constructor(props) {
-  //     super(props);
-  //     this.state = {...}
-  // }
+const burgerBuilder = (props) => {
   const [purchasing, setPurchasing] = useState(false);
 
   const dispatch = useDispatch();
 
-  const ings = useSelector(state => {
+  const ings = useSelector((state) => {
     return state.burgerBuilder.ingredients;
   });
-  const price = useSelector(state => state.burgerBuilder.totalPrice);
-  const error = useSelector(state => state.burgerBuilder.error);
-  const isAuthenticated = useSelector(state => state.auth.token !== null);
+  const price = useSelector((state) => state.burgerBuilder.totalPrice);
+  const error = useSelector((state) => state.burgerBuilder.error);
+  const isAuthenticated = useSelector((state) => state.auth.token !== null);
 
-  const onIngredientAdded = ingName => dispatch(actions.addIngredient(ingName));
-  const onIngredientRemoved = ingName =>
+  const onIngredientAdded = (ingName) =>
+    dispatch(actions.addIngredient(ingName));
+  const onIngredientRemoved = (ingName) =>
     dispatch(actions.removeIngredient(ingName));
   const onInitIngredients = useCallback(
     () => dispatch(actions.initIngredients()),
     [dispatch]
   );
   const onInitPurchase = () => dispatch(actions.purchaseInit());
-  const onSetAuthRedirectPath = path =>
+  const onSetAuthRedirectPath = (path) =>
     dispatch(actions.setAuthRedirectPath(path));
 
   useEffect(() => {
     onInitIngredients();
   }, [onInitIngredients]);
 
-  const updatePurchaseState = ingredients => {
+  const updatePurchaseState = (ingredients) => {
     const sum = Object.keys(ingredients)
-      .map(igKey => {
+      .map((igKey) => {
         return ingredients[igKey];
       })
       .reduce((sum, el) => {
@@ -72,7 +69,7 @@ const burgerBuilder = props => {
   };
 
   const disabledInfo = {
-    ...ings
+    ...ings,
   };
   for (let key in disabledInfo) {
     disabledInfo[key] = disabledInfo[key] <= 0;
@@ -104,7 +101,7 @@ const burgerBuilder = props => {
       />
     );
   }
-  // {salad: true, meat: false, ...}
+
   return (
     <Aux>
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
