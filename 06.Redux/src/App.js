@@ -1,11 +1,6 @@
-import React, { Component } from 'react';
-
+import React from 'react';
 import Persons from './containers/Persons';
 
-class App extends Component {
-  render() {
-    return <Persons />;
-  }
-}
+const App = () => <Persons />;
 
 export default App;

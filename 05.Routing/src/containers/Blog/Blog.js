@@ -16,48 +16,63 @@ const AsyncNewPost = asyncComponent(() => {
 
 class Blog extends Component {
   state = {
-    auth: true
-  }
+    auth: true,
+  };
 
-  render () {
+  render() {
     return (
       <div className="Blog">
         <header>
           <nav>
             <ul>
-              <li><NavLink
-                to="/posts/"
-                exact
-                activeClassName="my-active"
-                activeStyle={{
-                  color: '#fa923f'
-                }}>Posts</NavLink>
+              <li>
+                <NavLink
+                  to="/posts/"
+                  exact
+                  activeClassName="my-active"
+                  activeStyle={{
+                    color: '#fa923f',
+                  }}
+                >
+                  Posts
+                </NavLink>
               </li>
-              <li><NavLink to={{
-                  pathname: '/new-post',
-                  hash: '#submit',
-                  search: '?quick-submit=true'
-                }}>New Post</NavLink>
+              <li>
+                <NavLink
+                  to={{
+                    pathname: '/new-post',
+                    hash: '#submit',
+                    search: '?quick-submit=true',
+                  }}
+                >
+                  New Post
+                </NavLink>
               </li>
             </ul>
           </nav>
         </header>
- 
+
         <Switch>
-          {this.state.auth ? <Route path="/new-post" component={AsyncNewPost} /> : null}   {/*this line is example of guard and lazy loading the old fashion way*/}
+          {this.state.auth ? (
+            <Route path="/new-post" component={AsyncNewPost} />
+          ) : null}{' '}
+          {/*this line is example of guard and lazy loading the old fashion way*/}
           <Route path="/posts" exact component={Posts} />
-          <Route render={() => <h1>Not found. Without the path it will always match</h1>}/>
+          <Route
+            render={() => (
+              <h1>Not found. Without the path it will always match</h1>
+            )}
+          />
           {/* <Redirect from="/" to="/posts" /> */}
           {/* <Route path="/" component={Posts} /> */}
-
           {/* below is the newest way of lazy loading */}
-          <Route 
-            path="/streets" 
+          <Route
+            path="/streets"
             render={() => (
-                <Suspense fallback={<div>Loading...</div>}>
-                    <Streets />
-                </Suspense>
-            )} 
+              <Suspense fallback={<div>Loading...</div>}>
+                <Streets />
+              </Suspense>
+            )}
           />
         </Switch>
       </div>

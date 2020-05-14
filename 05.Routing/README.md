@@ -23,7 +23,7 @@ All the routing is handled by javascript and only our app knows about the paths 
 ```javascript
 import { Route } from 'react-router-dom';
 
-// ex.1 
+// ex.1
 <Route path="/" exact render={() => <h1>I am home component</h1>} />
 // ex.2
 <Route path="/posts" component={Posts} />
@@ -33,7 +33,7 @@ import { Route } from 'react-router-dom';
 ```
 
 Another Note on Route: Route will add additional props to the component loaded with Route, but child components of that component will not get that props which provide information about the routing. For that we can use special high order component called **withRouter** imported from react-router-dom.
-We use the *withRouter* hoc on the child component for which we need the props.
+We use the _withRouter_ hoc on the child component for which we need the props.
 
 ## Link
 
@@ -65,7 +65,7 @@ Switch is used to use only the first matching Route. Because in case more than o
 import { Switch } from 'react-router-dom';
 
 <Switch>
-    <Route path="/posts" component={Posts} />
-    <Route path="/:id" component={Posts} />
-</Switch>
+  <Route path="/posts" component={Posts} />
+  <Route path="/:id" component={Posts} />
+</Switch>;
 ```
