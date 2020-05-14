@@ -1,43 +1,25 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-class AddPerson extends Component {
+const AddPerson = (props) => {
   // in this component we will combine usage of local state and redux state, because we dont want to use redux for each letter input
-  state = {
-    name: '',
-    age: '',
+  const [name, setName] = useState('');
+  const [age, setAge] = useState('');
+
+  const nameChangedHandler = (event) => {
+    setName(event.target.value);
   };
 
-  nameChangedHandler = (event) => {
-    this.setState({ name: event.target.value });
+  const ageChangedHandler = (event) => {
+    setAge(event.target.value);
   };
 
-  ageChangedHandler = (event) => {
-    this.setState({ age: event.target.value });
-  };
-
-  render() {
-    return (
-      <div>
-        <input
-          type="text"
-          onChange={this.nameChangedHandler}
-          value={this.state.name}
-        />
-        <input
-          type="number"
-          onChange={this.ageChangedHandler}
-          value={this.state.age}
-        />
-        <button
-          onClick={() =>
-            this.props.personAdded(this.state.name, this.state.age)
-          }
-        >
-          Add Person
-        </button>
-      </div>
-    );
-  }
-}
+  return (
+    <div>
+      <input type="text" onChange={nameChangedHandler} value={name} />
+      <input type="number" onChange={ageChangedHandler} value={age} />
+      <button onClick={() => props.personAdded(name, age)}>Add Person</button>
+    </div>
+  );
+};
 
 export default AddPerson;
