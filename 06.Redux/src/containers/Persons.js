@@ -20,7 +20,8 @@ const Persons = (props) => (
 );
 
 // the state here is our global store state. And the prs will be given to our component. If we want more things to be given to us we have to also add them here so we can use for the component
-const mapStateToProps = (state) => {
+// as second parameter we have access to the props in case we need them here instead of directly in the component
+const mapStateToProps = (state, props) => {
   // we choose the key names and this is how we will get the data in the props
   return {
     prs: state.persons,
