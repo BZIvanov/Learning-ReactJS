@@ -35,3 +35,7 @@ To use global variables create .env file. Every variable name must start with **
 If you want to use global variables in your index.html you have to put the variable name in percent signs. Here is example **%REACT_APP_API_KEY%**.
 
 And these variables don't provide security so you should never put sensitive information in these varibles on the front-end.
+
+## Working with .svg files
+
+Read [here]('https://create-react-app.dev/docs/adding-images-fonts-and-files/') for more details on how to work with and import svg files.
