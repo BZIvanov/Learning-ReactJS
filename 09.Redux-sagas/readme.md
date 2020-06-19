@@ -4,7 +4,7 @@
 
 - **all** - allows us to use multiple sagas. The logic is similar to Promise.all
 
-- **takeEvery** - the first parameter is the action we want to dispatch, the second parameter is the generator function to run. Everytime from the store is dispatched the action specified as first parameter, the generator as second parameter will be executed.
+- **takeEvery** - the first parameter is the action we want to dispatch, the second parameter is the generator function to run. Everytime from the store is dispatched the action specified as first parameter, the generator as second parameter will be executed. _NON-BLOCKING_
 
 Basically we can have one type of action in different reducers, so this is a use case for takeEvery.
 
