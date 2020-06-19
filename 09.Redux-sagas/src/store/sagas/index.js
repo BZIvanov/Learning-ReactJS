@@ -1,5 +1,4 @@
 import { all } from 'redux-saga/effects';
-
 import imagesSaga from './imagesSaga';
 import statsSaga from './statsSaga';
 
