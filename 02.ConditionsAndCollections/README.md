@@ -4,6 +4,7 @@
 
 Bad example:
 Imagine we have in the state persons array, if we splice like that we will change the original state
+
 ```javascript
 const persons = this.state.persons;
 persons.splice(2, 1);
@@ -11,6 +12,7 @@ persons.splice(2, 1);
 
 Good example:
 Like this with slice we will get new array containing all the elements from the array in the state
+
 ```javascript
 const persons = this.state.persons.slice();
 // or
@@ -18,7 +20,7 @@ const persons = [...this.state.persons];
 persons.splice(2, 1);
 ```
 
-##  Lifecycle methods
+## Lifecycle methods
 
 ### Class based
 
@@ -34,4 +36,4 @@ persons.splice(2, 1);
 
 6. shouldComponentUpdate(nextProps, nextState) - used for performance optimizations, because with it we can cancel updating on some of the components
 
-7. componentDidUpdate() - 
+7. componentDidUpdate() -
