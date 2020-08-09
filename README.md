@@ -38,4 +38,4 @@ And these variables don't provide security so you should never put sensitive inf
 
 ## Working with .svg files
 
-Read [here]('https://create-react-app.dev/docs/adding-images-fonts-and-files/') for more details on how to work with and import svg files.
+Read [here](https://create-react-app.dev/docs/adding-images-fonts-and-files/) for more details on how to work with and import svg files.

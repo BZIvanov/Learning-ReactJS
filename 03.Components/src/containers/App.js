@@ -16,13 +16,13 @@ class App extends Component {
     persons: [
       { id: 'asfa1', name: 'Max', age: 28 },
       { id: 'vasdf1', name: 'Manu', age: 29 },
-      { id: 'asdf11', name: 'Stephanie', age: 26 }
+      { id: 'asdf11', name: 'Stephanie', age: 26 },
     ],
     otherState: 'some other value',
     showPersons: false,
     showCockpit: true,
     changeCounter: 0,
-    authenticated: false
+    authenticated: false,
   };
 
   // this lifecycle method is called after the constructor
@@ -49,12 +49,12 @@ class App extends Component {
   }
 
   nameChangedHandler = (event, id) => {
-    const personIndex = this.state.persons.findIndex(p => {
+    const personIndex = this.state.persons.findIndex((p) => {
       return p.id === id;
     });
 
     const person = {
-      ...this.state.persons[personIndex]
+      ...this.state.persons[personIndex],
     };
 
     // const person = Object.assign({}, this.state.persons[personIndex]);
@@ -68,12 +68,12 @@ class App extends Component {
     this.setState((prevState, props) => {
       return {
         persons: persons,
-        changeCounter: prevState.changeCounter + 1
+        changeCounter: prevState.changeCounter + 1,
       };
     });
   };
 
-  deletePersonHandler = personIndex => {
+  deletePersonHandler = (personIndex) => {
     // const persons = this.state.persons.slice();
     const persons = [...this.state.persons];
     persons.splice(personIndex, 1);
@@ -116,7 +116,7 @@ class App extends Component {
         <AuthContext.Provider
           value={{
             authenticated: this.state.authenticated,
-            login: this.loginHandler
+            login: this.loginHandler,
           }}
         >
           {this.state.showCockpit ? (
