@@ -8,6 +8,7 @@ You will also have to use the composeEnhancers() method in the index.js file to 
 ### Thunk - Running async code
 
 For async code we need to install redux-thunk. Run in the terminal
+
 ```
 npm install --save redux-thunk
 ```

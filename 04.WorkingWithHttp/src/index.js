@@ -11,27 +11,32 @@ axios.defaults.headers.common['Authorization'] = 'AUTH TOKEN';
 // and this is how we set something for POST requests only for example
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
-
 // INTERCEPTORS
 // the interceptor will be used for all the requests for the application
-axios.interceptors.request.use(request => {
+axios.interceptors.request.use(
+  (request) => {
     console.log(request);
     // Edit request config or whatever you want here
 
     // it is important to return the request so it can continue, otherwise it will be blocked
     return request;
-}, error => {
+  },
+  (error) => {
     console.log(error);
     return Promise.reject(error);
-});
+  }
+);
 
-axios.interceptors.response.use(response => {
+axios.interceptors.response.use(
+  (response) => {
     console.log(response);
     // Edit response config
     return response;
-}, error => {
+  },
+  (error) => {
     console.log(error);
     return Promise.reject(error);
-});
+  }
+);
 
-ReactDOM.render( <App />, document.getElementById( 'root' ) );
+ReactDOM.render(<App />, document.getElementById('root'));

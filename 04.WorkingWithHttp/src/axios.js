@@ -4,7 +4,7 @@ import axios from 'axios';
 default settings and interceptors we can make different for different parts of our application.
 We use the different instances by importing the file where the instance is created, for example this file with this example instance. */
 const instance = axios.create({
-    baseURL: 'https://jsonplaceholder.typicode.com'
+  baseURL: 'https://jsonplaceholder.typicode.com',
 });
 
 instance.defaults.headers.common['Authorization'] = 'AUTH TOKEN FROM INSTANCE';
