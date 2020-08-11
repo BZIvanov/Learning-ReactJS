@@ -1,9 +1,9 @@
 import React from 'react';
 // connect is hoc which is a function which returns function
 import { connect } from 'react-redux';
-import Person from '../components/Person/Person';
-import AddPerson from '../components/AddPerson/AddPerson';
-import * as actionTypes from '../store/actions';
+import Person from './Person';
+import AddPerson from './AddPerson';
+import * as actionTypes from '../store/action-types';
 
 const Persons = (props) => (
   <div>
