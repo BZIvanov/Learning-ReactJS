@@ -3,7 +3,7 @@ import React, { useEffect, useRef, useContext } from 'react';
 import classes from './Cockpit.css';
 import AuthContext from '../../context/auth-context';
 
-const cockpit = (props) => {
+const Cockpit = (props) => {
   const toggleBtnRef = useRef(null);
   const authContext = useContext(AuthContext);
 
@@ -51,4 +51,4 @@ const cockpit = (props) => {
 };
 
 // React.memo is using for optimization, because this component will rerender only if it's props are changed
-export default React.memo(cockpit);
+export default React.memo(Cockpit);
