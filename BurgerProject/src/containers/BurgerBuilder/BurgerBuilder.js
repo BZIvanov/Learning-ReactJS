@@ -1,7 +1,5 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-import Aux from '../../hoc/Aux/Aux';
 import Burger from '../../components/Burger/Burger';
 import BuildControls from '../../components/Burger/BuildControls/BuildControls';
 import Modal from '../../components/UI/Modal/Modal';
@@ -11,7 +9,7 @@ import withErrorHandler from '../../hoc/withErrorHandler/withErrorHandler';
 import * as actions from '../../store/actions/index';
 import axios from '../../axios-orders';
 
-const burgerBuilder = (props) => {
+const BurgerBuilder = (props) => {
   const [purchasing, setPurchasing] = useState(false);
 
   const dispatch = useDispatch();
@@ -79,7 +77,7 @@ const burgerBuilder = (props) => {
 
   if (ings) {
     burger = (
-      <Aux>
+      <>
         <Burger ingredients={ings} />
         <BuildControls
           ingredientAdded={onIngredientAdded}
@@ -90,7 +88,7 @@ const burgerBuilder = (props) => {
           isAuth={isAuthenticated}
           price={price}
         />
-      </Aux>
+      </>
     );
     orderSummary = (
       <OrderSummary
@@ -103,13 +101,13 @@ const burgerBuilder = (props) => {
   }
 
   return (
-    <Aux>
+    <>
       <Modal show={purchasing} modalClosed={purchaseCancelHandler}>
         {orderSummary}
       </Modal>
       {burger}
-    </Aux>
+    </>
   );
 };
 
-export default withErrorHandler(burgerBuilder, axios);
+export default withErrorHandler(BurgerBuilder, axios);
