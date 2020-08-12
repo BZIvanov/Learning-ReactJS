@@ -1,6 +1,6 @@
 import React from 'react';
 
-const char = (props) => {
+const Char = (props) => {
   const style = {
     display: 'inline-block',
     padding: '16px',
@@ -16,4 +16,4 @@ const char = (props) => {
   );
 };
 
-export default char;
+export default Char;
