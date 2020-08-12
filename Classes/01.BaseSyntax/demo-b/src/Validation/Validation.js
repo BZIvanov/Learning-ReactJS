@@ -1,9 +1,10 @@
 import React from 'react';
 
-const Validation = (props) => {
+// here on props we will have only inputLength so it is easier to destructure it
+const Validation = ({ inputLength }) => {
   let validationMessage = 'Text long enough';
 
-  if (props.inputLength <= 5) {
+  if (inputLength <= 5) {
     validationMessage = 'Text too short';
   }
 
