@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-// import with capital letter
+// import components with capital letter
 import UserInput from './UserInput/UserInput';
 import UserOutput from './UserOutput/UserOutput';
 
