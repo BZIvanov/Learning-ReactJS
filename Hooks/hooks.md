@@ -1,3 +1,6 @@
+## useState
+
+```javascript
 import React, { useState } from 'react';
 
 const People = () => {
@@ -23,3 +26,4 @@ const People = () => {
 };
 
 export default People;
+```
