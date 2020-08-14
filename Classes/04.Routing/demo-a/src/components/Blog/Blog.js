@@ -1,6 +1,5 @@
 import React, { Component, Suspense } from 'react';
 import { Route, NavLink, Switch, Redirect } from 'react-router-dom';
-
 import './Blog.css';
 import Posts from './Posts/Posts';
 import asyncComponent from '../../hoc/asyncComponent';
