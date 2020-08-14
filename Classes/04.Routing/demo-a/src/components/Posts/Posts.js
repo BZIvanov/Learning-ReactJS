@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from '../../../axios';
 import { Route } from 'react-router-dom';
-import Post from '../../../components/Post/Post';
+import Post from '../Post/Post';
 import './Posts.css';
 import FullPost from '../FullPost/FullPost';
 
