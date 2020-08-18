@@ -12,6 +12,7 @@ export default function CocktailList({ cocktails, loading }) {
       </h2>
     );
   }
+
   return (
     <section className="section">
       <h2 className="section-title">cocktails</h2>
