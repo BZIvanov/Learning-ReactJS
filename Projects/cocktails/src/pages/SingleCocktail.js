@@ -1,12 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { useParams, Link } from 'react-router-dom';
 
 export default function SingleCocktail() {
   const { id } = useParams();
-  const [loading, setLoading] = React.useState(false);
-  const [cocktail, setCocktail] = React.useState(null);
+  const [loading, setLoading] = useState(false);
+  const [cocktail, setCocktail] = useState(null);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setLoading(true);
     async function getCocktail() {
       try {
@@ -55,9 +55,11 @@ export default function SingleCocktail() {
     }
     getCocktail();
   }, [id]);
+
   if (loading) {
     return <h2 className="section-title">Loading...</h2>;
   }
+
   if (!cocktail) {
     return <h2 className="section-title">no cocktail to display</h2>;
   } else {

@@ -1,14 +1,15 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import CocktailList from '../components/CocktailList';
 import SearchForm from '../components/SearchForm';
 
 export default function Home() {
-  const [loading, setLoading] = React.useState(false);
-  const [searchTerm, setSearchTerm] = React.useState('a');
-  const [cocktails, setCocktails] = React.useState([]);
+  const [loading, setLoading] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('a');
+  const [cocktails, setCocktails] = useState([]);
 
-  React.useEffect(() => {
+  useEffect(() => {
     setLoading(true);
+
     async function getDrinks() {
       try {
         const response = await fetch(

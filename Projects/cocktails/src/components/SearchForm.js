@@ -1,18 +1,20 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 
 export default function SearchForm({ setSearchTerm }) {
-  const searchValue = React.useRef('');
+  const searchValue = useRef('');
 
-  React.useEffect(() => {
+  useEffect(() => {
     searchValue.current.focus();
   }, []);
 
   function searchCocktail() {
     setSearchTerm(searchValue.current.value);
   }
+
   function handleSubmit(e) {
     e.preventDefault();
   }
+
   return (
     <section className="section">
       <h2 className="section-title">search cocktails</h2>
