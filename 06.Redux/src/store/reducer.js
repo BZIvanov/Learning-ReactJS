@@ -1,10 +1,11 @@
-import * as actionTypes from './action-types';
+import * as actionTypes from "./action-types";
 
 const initialState = {
   persons: [],
 };
 
 // state has default value for the very first time to be initilized with it. The 2 arguments state and action are provided by redux
+// whatever we return from the reducer will be the new state, because the reducer is responsible to update the state in the store
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.ADD_PERSON:
@@ -23,7 +24,7 @@ const reducer = (state = initialState, action) => {
       return {
         ...state,
         persons: state.persons.filter(
-          (person) => person.id !== action.personId
+          (person) => person.id !== action.personId,
         ),
       };
   }
