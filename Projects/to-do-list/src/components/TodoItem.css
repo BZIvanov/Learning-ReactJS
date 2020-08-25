@@ -1,0 +1,13 @@
+.control {
+  cursor: pointer;
+}
+
+.control:hover {
+  opacity: 0.7;
+}
+
+.title {
+  word-break: break-all;
+  max-width: 80%;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.075);
+}
