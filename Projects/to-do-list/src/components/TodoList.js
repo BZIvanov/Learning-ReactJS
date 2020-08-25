@@ -15,13 +15,17 @@ const TodoList = ({ todos, clearList, handleDelete, handleEdit }) => {
           />
         );
       })}
-      <button
-        type="button"
-        className="btn btn-danger btn-block text-uppercase mt-5"
-        onClick={clearList}
-      >
-        clear list
-      </button>
+      {todos.length > 0 ? (
+        <button
+          type="button"
+          className="btn btn-danger btn-block text-uppercase mt-5"
+          onClick={clearList}
+        >
+          clear list
+        </button>
+      ) : (
+        <h5 className="text-capitalize text-center mt-5">List is empty</h5>
+      )}
     </ul>
   );
 };
