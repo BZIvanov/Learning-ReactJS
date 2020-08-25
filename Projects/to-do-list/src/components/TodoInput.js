@@ -1,4 +1,5 @@
 import React from 'react';
+import './TodoInput.css';
 
 const TodoInput = ({ todo, handleChange, handleSubmit, isEditMode }) => {
   return (
@@ -21,7 +22,7 @@ const TodoInput = ({ todo, handleChange, handleSubmit, isEditMode }) => {
         <button
           type="submit"
           disabled={!todo}
-          className={`btn btn-block mt-3 ${
+          className={`btn btn-block mt-3 input-btn ${
             isEditMode ? 'btn-success' : 'btn-primary text-uppercase'
           }`}
         >
