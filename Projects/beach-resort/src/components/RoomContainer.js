@@ -1,11 +1,11 @@
 import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
-// import RoomsFilter from "./RoomFilter";
+import RoomsFilter from './RoomFilter';
 import RoomsList from './RoomList';
 import Loading from './Loading';
 import * as actions from '../store/actions/rooms';
 
-const RoomContainer = ({ onFetchRooms, loading, rooms }) => {
+const RoomContainer = ({ onFetchRooms, loading, rooms, filters }) => {
   useEffect(() => {
     onFetchRooms();
   }, [onFetchRooms]);
@@ -14,17 +14,35 @@ const RoomContainer = ({ onFetchRooms, loading, rooms }) => {
     return <Loading />;
   }
 
+  let filteredRooms = [...rooms];
+  if (filters.selectedType !== 'all') {
+    filteredRooms = rooms.filter((room) => room.type === filters.selectedType);
+  }
+  filteredRooms = filteredRooms
+    .filter((room) => room.capacity >= parseInt(filters.selectedCapacity, 10))
+    .filter((room) => room.price >= filters.price)
+    .filter(
+      (room) => room.size >= filters.minSize && room.size <= filters.maxSize
+    );
+  if (filters.breakfast) {
+    filteredRooms = rooms.filter((room) => room.breakfast);
+  }
+  if (filters.pets) {
+    filteredRooms = rooms.filter((room) => room.pets);
+  }
+
   return (
     <>
-      {/* <RoomsFilter rooms={rooms} /> */}
-      <RoomsList rooms={rooms} />
+      <RoomsFilter />
+      <RoomsList rooms={filteredRooms} />
     </>
   );
 };
 
-const mapStateToProps = ({ rooms }) => ({
+const mapStateToProps = ({ rooms, filters }) => ({
   loading: rooms.loading,
   rooms: rooms.rooms,
+  filters,
 });
 
 const mapDispatchToProps = (dispatch) => ({
