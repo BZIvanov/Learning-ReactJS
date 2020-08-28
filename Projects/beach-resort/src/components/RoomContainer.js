@@ -20,7 +20,7 @@ const RoomContainer = ({ onFetchRooms, loading, rooms, filters }) => {
   }
   filteredRooms = filteredRooms
     .filter((room) => room.capacity >= parseInt(filters.selectedCapacity, 10))
-    .filter((room) => room.price >= filters.price)
+    .filter((room) => room.price <= filters.price)
     .filter(
       (room) => room.size >= filters.minSize && room.size <= filters.maxSize
     );

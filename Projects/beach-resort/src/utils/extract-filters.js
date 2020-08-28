@@ -13,6 +13,7 @@ export default (roomsResponse) => {
       (a, b) => a - b
     ),
     maxPrice: getMaxValue(roomsResponse, 'price'),
+    price: getMaxValue(roomsResponse, 'price'),
     maxSize: getMaxValue(roomsResponse, 'size'),
   };
 };
