@@ -3,6 +3,7 @@ import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { ThemeProvider } from '@material-ui/core/styles';
 import theme from './ui/Theme';
 import Header from './ui/Header';
+import Footer from './ui/Footer';
 
 function App() {
   return (
@@ -10,7 +11,11 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-          <Route exact path="/" component={() => <div>Home</div>} />
+          <Route
+            exact
+            path="/"
+            component={() => <div style={{ height: '2000px' }}>Home</div>}
+          />
           <Route exact path="/services" component={() => <div>Home</div>} />
           <Route
             exact
@@ -24,6 +29,7 @@ function App() {
           <Route exact path="/contact" component={() => <div>Home</div>} />
           <Route exact path="/estimate" component={() => <div>Home</div>} />
         </Switch>
+        <Footer />
       </BrowserRouter>
     </ThemeProvider>
   );
