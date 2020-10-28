@@ -8,10 +8,10 @@ const Counter = (props) => {
   return (
     <div>
       <CounterOutput value={props.ctr} />
-      <CounterControl label="Increment" clicked={props.onIncrementCounter} />
-      <CounterControl label="Decrement" clicked={props.onDecrementCounter} />
-      <CounterControl label="Add 10" clicked={props.onAddCounter} />
-      <CounterControl label="Subtract 15" clicked={props.onSubtractCounter} />
+      <CounterControl label='Increment' clicked={props.onIncrementCounter} />
+      <CounterControl label='Decrement' clicked={props.onDecrementCounter} />
+      <CounterControl label='Add 10' clicked={props.onAddCounter} />
+      <CounterControl label='Subtract 15' clicked={props.onSubtractCounter} />
       <hr />
       {/* here we provide as argument ctr, because in the indiviudal reducers we dont have access to the global state so we provide the state as property */}
       <button onClick={() => props.onStoreResult(props.ctr)}>
