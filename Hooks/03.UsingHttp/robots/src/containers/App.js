@@ -1,4 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import SearchBox from '../components/SearchBox';
+import Scroll from '../components/Scroll';
+import CardList from '../components/CardList';
 import './App.css';
 
 const App = () => {
@@ -26,6 +29,10 @@ const App = () => {
   ) : (
     <div className='tc'>
       <h1 className='f1'>RoboFriends</h1>
+      <SearchBox searchChange={onSearchChange} />
+      <Scroll>
+        <CardList robots={filteredRobots} />
+      </Scroll>
     </div>
   );
 };
