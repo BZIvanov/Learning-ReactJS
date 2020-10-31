@@ -108,7 +108,7 @@ const Ingredients = () => {
   }, [userIngredients, removeIngredientHandler]);
 
   return (
-    <div className="App">
+    <div className='App'>
       {httpState.error && (
         <ErrorModal onClose={clearError}>{httpState.error}</ErrorModal>
       )}

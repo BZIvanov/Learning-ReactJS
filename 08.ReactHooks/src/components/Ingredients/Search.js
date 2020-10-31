@@ -37,13 +37,13 @@ const Search = React.memo((props) => {
   }, [enteredFilter, onLoadIngredients, inputRef]);
 
   return (
-    <section className="search">
+    <section className='search'>
       <Card>
-        <div className="search-input">
+        <div className='search-input'>
           <label>Filter by Title</label>
           <input
             ref={inputRef}
-            type="text"
+            type='text'
             value={enteredFilter}
             onChange={(event) => setEnteredFilter(event.target.value)}
           />
