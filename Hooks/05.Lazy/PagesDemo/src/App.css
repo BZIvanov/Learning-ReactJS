@@ -1,0 +1,25 @@
+.App {
+  text-align: center;
+}
+
+.App-header {
+  background-color: #282c34;
+  color: white;
+}
+
+button {
+  padding: 20px;
+  border: 2px solid blue;
+  margin: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  background: yellow;
+}
+
+.disabled {
+  cursor: not-allowed;
+  pointer-events: none;
+  color: #c0c0c0;
+  background-color: #ffffff;
+  border: 2px solid grey;
+}
