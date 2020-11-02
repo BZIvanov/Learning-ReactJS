@@ -20,3 +20,14 @@ enum Size {
   Large = 3,
 }
 let carSize: number = Size.Small; // 1
+
+// INTERFACE
+interface Car {
+  wheels: number;
+  color: string;
+  engine?: string;
+}
+const myCar: Car = { wheels: 4, color: 'orange' };
+
+// UNION
+let something: string | number = 5;
