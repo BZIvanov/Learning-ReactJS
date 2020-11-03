@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import QuestionCard from './components/QuestionCard';
 import { fetchQuizQuestions } from './API';
 import { QuestionsState, Difficulty } from './API';
 
@@ -69,7 +70,16 @@ const App: React.FC = () => {
       ) : null}
       {!gameOver ? <p className='score'>Score: {score}</p> : null}
       {loading ? <p>Loading Questions...</p> : null}
-      {!loading && !gameOver && <div>Question card placeholder</div>}
+      {!loading && !gameOver && (
+        <QuestionCard
+          questionNr={number + 1}
+          totalQuestions={TOTAL_QUESTIONS}
+          question={questions[number].question}
+          answers={questions[number].answers}
+          userAnswer={userAnswers ? userAnswers[number] : undefined}
+          callback={checkAnswer}
+        />
+      )}
       {!gameOver &&
       !loading &&
       userAnswers.length === number + 1 &&
