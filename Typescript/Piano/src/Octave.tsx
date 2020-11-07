@@ -18,7 +18,7 @@ type Props = {
 const Octave: React.FC<Props> = ({ notes, clickHandler }) => (
   <Wrapper>
     <div>
-      {notes.map((element: any) => (
+      {notes.map((element: NoteType) => (
         <Note
           key={element.note}
           color={element.color}
