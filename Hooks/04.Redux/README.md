@@ -14,9 +14,9 @@ npm install --save react-redux
 
 ## Core points in Redux
 
-- Store -
+- Store - the data described as single source of truth
 
-- Reducer - reducer is the one updating the store. Reducer function takes 2 arguments, the first is the current state and the second is the action and it will return the updated state. In the reducer we cant run asynchronous code
+- Reducer - reducer is function updating the store. Reducer function takes 2 arguments, the first is the current state and the second is the action and it will return the updated state. In the reducer we can't run asynchronous code
 
 - Dispatching Action - dispatch is used on the store. It is a function which takes 1 argument, javascript object with type of action.
 
