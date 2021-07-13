@@ -5,8 +5,8 @@ const App = () => {
   const [person, setPerson] = useState({ firstName: '', lastName: '' });
   const [people, setPeople] = useState('');
 
-  const handleChange = (event) => {
-    setPerson({ ...person, [event.target.name]: event.target.value });
+  const handleChange = ({ target }) => {
+    setPerson({ ...person, [target.name]: target.value });
   };
 
   const handleSubmit = (e) => {
@@ -25,18 +25,18 @@ const App = () => {
       <article>
         <form onSubmit={handleSubmit}>
           <input
-            type="text"
-            name="firstName"
+            type='text'
+            name='firstName'
             value={person.firstName}
             onChange={handleChange}
           />
           <input
-            type="text"
-            name="lastName"
+            type='text'
+            name='lastName'
             value={person.lastName}
             onChange={handleChange}
           />
-          <button type="submit">submit</button>
+          <button type='submit'>submit</button>
         </form>
       </article>
       <article>
