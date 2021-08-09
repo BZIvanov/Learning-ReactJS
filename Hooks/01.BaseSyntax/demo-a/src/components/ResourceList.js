@@ -1,5 +1,4 @@
-import React from 'react';
-import useResources from './useResources';
+import useResources from '../custom-hooks/useResources';
 
 const ResourceList = ({ resource }) => {
   const resources = useResources(resource);
