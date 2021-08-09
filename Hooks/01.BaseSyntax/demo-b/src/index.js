@@ -1,8 +1,7 @@
-import React, { useState, useEffect } from 'react';
 import ReactDOM from 'react-dom';
-import SeasonDisplay from './SeasonDisplay';
-import Spinner from './Spinner';
-import useLocation from './useLocation';
+import SeasonDisplay from './components/SeasonDisplay';
+import Spinner from './components/Spinner';
+import useLocation from './custom-hooks/useLocation';
 
 const App = () => {
   const [lat, errorMessage] = useLocation();
@@ -13,10 +12,10 @@ const App = () => {
   } else if (lat) {
     content = <SeasonDisplay lat={lat} />;
   } else {
-    content = <Spinner message="Please accept location request" />;
+    content = <Spinner message='Please accept location request' />;
   }
 
-  return <div className="border red">{content}</div>;
+  return <div className='border red'>{content}</div>;
 };
 
 ReactDOM.render(<App />, document.querySelector('#root'));

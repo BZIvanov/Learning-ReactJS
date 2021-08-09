@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-export default () => {
+const useLocation = () => {
   const [lat, setLat] = useState(null);
   const [errorMessage, setErrorMessage] = useState('');
 
@@ -13,3 +13,5 @@ export default () => {
 
   return [lat, errorMessage];
 };
+
+export default useLocation;
