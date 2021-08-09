@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 
 // the second value setState is asynchronous function
 
 const App = () => {
   const [count, setCount] = useState(0);
 
-  const hanleIncrease = () => {
+  const handleIncrease = () => {
+    console.log('---');
     console.log('called first: ', count);
 
     setCount((prevState) => {
@@ -19,8 +19,8 @@ const App = () => {
 
   return (
     <div>
-      <span>count: {count}</span>
-      <button type="button" onClick={hanleIncrease}>
+      <span>count: {count} </span>
+      <button type='button' onClick={handleIncrease}>
         increase
       </button>
     </div>

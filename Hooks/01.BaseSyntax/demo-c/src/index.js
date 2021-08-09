@@ -1,4 +1,3 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 
 const Person = ({ img, name, job, children }) => {
@@ -6,9 +5,10 @@ const Person = ({ img, name, job, children }) => {
 
   return (
     <article>
-      <img src={url} alt="person" />
-      <h4>{name}</h4>
-      <h4>{job}</h4>
+      <img src={url} alt='person' />
+      <h3>
+        {name} is a {job}
+      </h3>
       {children}
     </article>
   );
@@ -17,14 +17,15 @@ const Person = ({ img, name, job, children }) => {
 const PersonList = () => {
   return (
     <section>
-      <Person img="34" name="john" job="developer" />
-      <Person img="22" name="bob" job="designer">
+      <Person img='33' name='Toni' job='Developer' />
+      <hr />
+      <Person img='22' name='Ivo' job='Designer'>
         <p>
-          Lorem ipsum dolor sit amet consectetur, adipisicing elit. Asperiores,
-          tempora!
+          HTML between component tags goes to children prop in the component.
         </p>
       </Person>
-      <Person img="56" name="david" job="the boss" />
+      <hr />
+      <Person img='51' name='Mitko' job='Manager' />
     </section>
   );
 };
