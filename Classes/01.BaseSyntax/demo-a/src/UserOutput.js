@@ -4,15 +4,14 @@ import './UserOutput.css';
 
 const UserOutput = (props) => {
   return (
-    <div className="UserOutput">
+    <div className='user-output'>
       <p>Username: {props.userName}</p>
 
       {/* In curly brackets we can use the props and run some JS code */}
-      <p>{Math.floor(2 * Math.random())}</p>
+      <p>Random number (0 or 1): {Math.floor(2 * Math.random())}</p>
 
-      {/* children is reserved word in react and it gets the content between
-            the component tags  */}
-      <p>{props.children}</p>
+      {/* children is reserved word in react and it gets the content between the component tags  */}
+      {props.children}
     </div>
   );
 };
