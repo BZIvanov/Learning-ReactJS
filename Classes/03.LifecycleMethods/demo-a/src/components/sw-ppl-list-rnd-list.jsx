@@ -1,6 +1,5 @@
 import React from 'react';
 import StarWarsPeopleList from './start-wars-people-list';
-import RandomList from './random-list';
 
 class StarWarsPeopleListAndRandomList extends React.Component {
   state = {
