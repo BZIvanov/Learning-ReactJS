@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import Book from './Book';
-import booksData from './bookData';
+import books from './data';
 
-export default class Booklist extends Component {
+export default class BooksList extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      books: booksData,
+      books,
     };
   }
 
@@ -20,7 +20,7 @@ export default class Booklist extends Component {
   render() {
     return (
       <section>
-        <h3>This is our Booklist</h3>
+        <h2 style={{ textAlign: 'center' }}>This is our Booklist</h2>
         {this.state.books.map((item) => (
           <Book key={item.id} info={item} handleDelete={this.handleDelete} />
         ))}

@@ -1,7 +1,6 @@
 import React from 'react';
-import Booklist from './Booklist';
-import './App.css';
+import BooksList from './BooksList';
 
-const App = () => <Booklist />;
+const App = () => <BooksList />;
 
 export default App;
