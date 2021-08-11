@@ -1,15 +1,14 @@
 import React, { Suspense } from 'react';
 import { Route, Switch } from 'react-router-dom';
 
-const Book = React.lazy(() => import('./book'));
-const BooksList = React.lazy(() => import('./book-list'));
+const Book = React.lazy(() => import('./Book'));
+const BooksList = React.lazy(() => import('./BooksList'));
 
 class Books extends React.Component {
   state = {
     books: [
-      { id: 'a', title: 'LOTR' },
-      { id: 'b', title: 'HP' },
-      { id: 'c', title: 'GOT' },
+      { id: '123', title: 'Book 1' },
+      { id: '125', title: 'Book 2' },
     ],
   };
 
@@ -19,7 +18,6 @@ class Books extends React.Component {
 
     return (
       <div>
-        <aside>Here is an ad for you</aside>
         <Suspense fallback={<span>Loading book information</span>}>
           <Switch>
             <Route
