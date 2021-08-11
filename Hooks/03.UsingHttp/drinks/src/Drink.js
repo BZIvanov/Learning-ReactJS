@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const SHORT_TEXT_LENGTH = 70;
 
@@ -24,11 +24,11 @@ const Drink = ({
           {readMore || strInstructions.length < SHORT_TEXT_LENGTH
             ? strInstructions
             : `${strInstructions.substring(0, SHORT_TEXT_LENGTH)}...`}
-          {strInstructions.length >= SHORT_TEXT_LENGTH ? (
+          {strInstructions.length >= SHORT_TEXT_LENGTH && (
             <button onClick={() => setReadMore(!readMore)}>
               {readMore ? 'show less' : '  read more'}
             </button>
-          ) : null}
+          )}
         </p>
         <button className='delete-btn' onClick={() => removeDrink(idDrink)}>
           not interested
