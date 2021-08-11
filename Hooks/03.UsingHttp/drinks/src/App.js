@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import Loading from './Loading';
 import Drinks from './Drinks';
 
@@ -9,8 +9,8 @@ function App() {
   const [drinks, setDrinks] = useState([]);
 
   const removeDrink = (id) => {
-    const newDrinks = drinks.filter((drink) => drink.idDrink !== id);
-    setDrinks(newDrinks);
+    const filteredDrinks = drinks.filter((drink) => drink.idDrink !== id);
+    setDrinks(filteredDrinks);
   };
 
   const fetchDrinks = async () => {
@@ -30,14 +30,7 @@ function App() {
     fetchDrinks();
   }, []);
 
-  if (loading) {
-    return (
-      <main>
-        <Loading />
-      </main>
-    );
-  }
-  if (drinks.length === 0) {
+  if (drinks.length === 0 && !loading) {
     return (
       <main>
         <div className='title'>
@@ -51,7 +44,11 @@ function App() {
   }
   return (
     <main>
-      <Drinks drinks={drinks} removeDrink={removeDrink} />
+      {loading ? (
+        <Loading />
+      ) : (
+        <Drinks drinks={drinks} removeDrink={removeDrink} />
+      )}
     </main>
   );
 }

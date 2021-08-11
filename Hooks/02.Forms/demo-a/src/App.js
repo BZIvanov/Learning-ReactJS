@@ -1,9 +1,8 @@
-import React, { useState } from 'react';
-import './App.css';
+import { useState } from 'react';
 
 const App = () => {
   const [person, setPerson] = useState({ firstName: '', lastName: '' });
-  const [people, setPeople] = useState('');
+  const [people, setPeople] = useState([]);
 
   const handleChange = ({ target }) => {
     setPerson({ ...person, [target.name]: target.value });
@@ -11,11 +10,12 @@ const App = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+
     const firstName = person.firstName;
     const lastName = person.lastName;
     if (firstName.length > 0 && lastName.length > 0) {
-      const person = ` ${firstName} ${lastName} `;
-      setPeople([...people, person]);
+      const fullName = `${firstName} ${lastName}`;
+      setPeople([...people, fullName]);
       setPerson({ firstName: '', lastName: '' });
     }
   };
@@ -39,9 +39,14 @@ const App = () => {
           <button type='submit'>submit</button>
         </form>
       </article>
+
       <article>
-        <h1>people</h1>
-        <div>{people}</div>
+        <h1>People List</h1>
+        <div>
+          {people.map((fullName, idx) => (
+            <h5 key={idx}>{fullName}</h5>
+          ))}
+        </div>
       </article>
     </section>
   );
