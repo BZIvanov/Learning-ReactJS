@@ -47,6 +47,7 @@ export default Todo;
 2. useEffect takes 2 arguments. The first argument is a function which will be executed. The second argument is controlling execution times, because without it the first argument will execute on each render method, which may often lead to infinite loop or some other unwanted behaviour.
 3. If the second argument is empty array the useEffect will run only once, because after initialized the empty array will never change.
 4. If the second argument is some variable useEffect will run each time that variable is changed.
+5. If no second argument, useEffect will run on every component render.
 
 ```javascript
 import React, { useState, useEffect } from 'react';
