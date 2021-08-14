@@ -1,4 +1,4 @@
-import * as actionTypes from "./action-types";
+import * as actionTypes from './action-types';
 
 const initialState = {
   persons: [],
@@ -11,8 +11,8 @@ const reducer = (state = initialState, action) => {
     case actionTypes.ADD_PERSON:
       const newPerson = {
         id: Math.random(),
-        name: action.personData.name,
-        age: action.personData.age,
+        name: action.payload.name,
+        age: action.payload.age,
       };
       // below we use spread operator to get everything from the state because state items are not merged and we would lose the ones not specified otherwise. Be careful with deep cloning
       return {
@@ -23,12 +23,11 @@ const reducer = (state = initialState, action) => {
       // filter is a good approach for removing items without mutating the previous data
       return {
         ...state,
-        persons: state.persons.filter(
-          (person) => person.id !== action.personId,
-        ),
+        persons: state.persons.filter((person) => person.id !== action.payload),
       };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;

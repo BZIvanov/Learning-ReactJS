@@ -1,41 +1,42 @@
-import React from 'react';
 // connect is hoc which is a function which returns function
 import { connect } from 'react-redux';
 import Person from './Person';
-import AddPerson from './AddPerson';
+import PersonForm from './PersonForm';
 import * as actionTypes from '../store/action-types';
 
-const Persons = (props) => (
-  <div>
-    <AddPerson personAdded={props.onAddedPerson} />
-    {props.prs.map((person) => (
-      <Person
-        key={person.id}
-        name={person.name}
-        age={person.age}
-        clicked={() => props.onRemovedPerson(person.id)}
-      />
-    ))}
-  </div>
-);
+const Persons = ({ persons, addPerson, removePerson }) => {
+  return (
+    <div>
+      <PersonForm onPersonAdd={addPerson} />
+      {persons.map((person) => (
+        <Person
+          key={person.id}
+          name={person.name}
+          age={person.age}
+          onPersonClick={() => removePerson(person.id)}
+        />
+      ))}
+    </div>
+  );
+};
 
 // the state here is our global store state. And the prs will be given to our component. If we want more things to be given to us we have to also add them here so we can use for the component
 // as second parameter we have access to the props in case we need them here instead of directly in the component
 const mapStateToProps = (state, props) => {
   // we choose the key names and this is how we will get the data in the props
   return {
-    prs: state.persons,
+    persons: state.persons,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     // type property has to be written type, naming for it is not up to us
-    onAddedPerson: (name, age) =>
+    addPerson: (name, age) =>
       // object provided to dispatch method is the exact object we will receive for the reducer's switch case
-      dispatch({ type: actionTypes.ADD_PERSON, personData: { name, age } }),
-    onRemovedPerson: (id) =>
-      dispatch({ type: actionTypes.REMOVE_PERSON, personId: id }),
+      dispatch({ type: actionTypes.ADD_PERSON, payload: { name, age } }),
+    removePerson: (id) =>
+      dispatch({ type: actionTypes.REMOVE_PERSON, payload: id }),
   };
 };
 
