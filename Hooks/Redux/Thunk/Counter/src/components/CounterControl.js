@@ -1,9 +1,12 @@
-import React from 'react';
+const styles = {
+  margin: '10px',
+  cursor: 'pointer',
+};
 
 const CounterControl = (props) => (
-  <div className='CounterControl' onClick={props.clicked}>
+  <button style={styles} onClick={props.clicked}>
     {props.label}
-  </div>
+  </button>
 );
 
 export default CounterControl;

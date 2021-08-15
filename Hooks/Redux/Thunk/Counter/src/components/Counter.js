@@ -1,32 +1,31 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import CounterControl from './CounterControl';
-import CounterOutput from './CounterOutput';
-import * as actionCreators from '../../store/actions/index';
+import StoredResults from './StoredResults';
+import * as actionCreators from '../store/actions';
 
 const Counter = (props) => {
   return (
     <div>
-      <CounterOutput value={props.ctr} />
+      <h3>Current Counter: {props.ctr}</h3>
+
+      <hr />
+
       <CounterControl label='Increment' clicked={props.onIncrementCounter} />
       <CounterControl label='Decrement' clicked={props.onDecrementCounter} />
       <CounterControl label='Add 10' clicked={props.onAddCounter} />
       <CounterControl label='Subtract 15' clicked={props.onSubtractCounter} />
+
       <hr />
+
       {/* here we provide as argument ctr, because in the indiviudal reducers we dont have access to the global state so we provide the state as property */}
       <button onClick={() => props.onStoreResult(props.ctr)}>
         Store Result
       </button>
-      <ul>
-        {props.storedResults.map((strResult) => (
-          <li
-            key={strResult.id}
-            onClick={() => props.onDeleteResult(strResult.id)}
-          >
-            {strResult.value}
-          </li>
-        ))}
-      </ul>
+
+      <StoredResults
+        results={props.storedResults}
+        deleteResult={props.onDeleteResult}
+      />
     </div>
   );
 };
