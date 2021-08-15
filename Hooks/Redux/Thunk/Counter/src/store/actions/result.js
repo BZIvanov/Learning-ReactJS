@@ -5,7 +5,7 @@ const saveResult = (res) => {
   const updatedResult = res * 2;
   return {
     type: actionTypes.STORE_RESULT,
-    result: updatedResult,
+    payload: updatedResult,
   };
 };
 
@@ -14,17 +14,17 @@ export const storeResult = (res) => {
   return (dispatch, getState) => {
     setTimeout(() => {
       // with getState here we can get the previous state before we update it in case we need that
-      const oldCounter = getState().ctr.counter;
-      console.log(oldCounter);
+      const curr = getState().ctr.counter;
+      console.log(curr);
 
       dispatch(saveResult(res));
-    }, 2000);
+    }, 1000);
   };
 };
 
-export const deleteResult = (resElId) => {
+export const deleteResult = (id) => {
   return {
     type: actionTypes.DELETE_RESULT,
-    resultElId: resElId,
+    payload: id,
   };
 };

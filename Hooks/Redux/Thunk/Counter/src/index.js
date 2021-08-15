@@ -1,12 +1,9 @@
-import React from 'react';
 import ReactDOM from 'react-dom';
 import App from './App';
-
 import { Provider } from 'react-redux';
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 // thunk has default export so no curly brackets needed
 import thunk from 'redux-thunk';
-
 import counterReducer from './store/reducers/counter';
 import resultReducer from './store/reducers/result';
 

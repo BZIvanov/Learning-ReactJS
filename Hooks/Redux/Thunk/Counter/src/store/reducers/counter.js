@@ -12,11 +12,12 @@ const reducer = (state = initialState, action) => {
     case actionTypes.DECREMENT:
       return updateObject(state, { counter: state.counter - 1 });
     case actionTypes.ADD:
-      return updateObject(state, { counter: state.counter + action.val });
+      return updateObject(state, { counter: state.counter + action.payload });
     case actionTypes.SUBTRACT:
-      return updateObject(state, { counter: state.counter - action.val });
+      return updateObject(state, { counter: state.counter - action.payload });
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
