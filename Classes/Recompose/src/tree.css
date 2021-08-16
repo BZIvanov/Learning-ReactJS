@@ -1,0 +1,23 @@
+.children {
+  margin-left: 1.5rem;
+  font-style: italic;
+}
+
+.children-collapsed {
+  height: 0px;
+}
+
+.arrow {
+  cursor: pointer;
+  margin-right: 5px;
+  display: inline-block;
+  user-select: none;
+}
+
+.arrow-collapsed {
+  transform: rotate(-90deg);
+}
+
+.arrow:after {
+  content: '👇';
+}
