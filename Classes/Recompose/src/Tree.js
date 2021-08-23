@@ -22,6 +22,10 @@ const Tree = ({ collapsedNodes, onHandleClick, onCollapseAll, options }) => (
   </div>
 );
 
+// compose help us to have easier to read hierarchy of components, instead of something like comp1(comp2(comp3()))
+// compose from recompose is similar to compose from redux
+// every parameter for compose is HOC and every next parameter is wrapped by the previous
+// the Tree component in this example will collect all the state from all the previous HOCs
 export default compose(
   withState('collapsedNodes', 'setCollapsedNodes', (props) =>
     props.options.map(() => false)
