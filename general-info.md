@@ -117,3 +117,31 @@ function NavBar({ children }) {
   );
 }
 ```
+
+Alternatively to the solution using children, we could achieve the same result, using a prop.
+
+```jsx
+// GOOD EXAMPLE
+
+// By using component composition with a prop we can provide the movies list to the components, where it is needed without props drilling
+
+function App() {
+  const [movies, setMovies] = useState([]);
+
+  return (
+    <>
+      <NavBar rightElement={<MoviesCount movies={movies} />} />
+      <MoviesList movies={movies} />
+    </>
+  );
+}
+
+function NavBar({ rightElement }) {
+  return (
+    <>
+      <Logo />
+      {rightElement}
+    </>
+  );
+}
+```
