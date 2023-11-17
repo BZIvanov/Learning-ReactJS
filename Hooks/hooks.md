@@ -115,9 +115,9 @@ export default Todo;
 
 ```javascript
 // folder: src/context/context.js or something like that, up to you
-import React from 'react';
+import { createContext } from 'react';
 
-const authContext = React.createContext();
+const authContext = createContext();
 
 export default authContext;
 ```
