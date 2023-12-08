@@ -1,0 +1,11 @@
+.input-btn:disabled {
+  cursor: not-allowed;
+}
+
+.btn-success {
+  background-color: lightgreen;
+}
+
+.btn-primary {
+  background-color: lightblue;
+}

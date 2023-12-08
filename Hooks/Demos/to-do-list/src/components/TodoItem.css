@@ -1,5 +1,11 @@
+.list-item {
+  display: flex;
+  align-items: center;
+}
+
 .control {
   cursor: pointer;
+  margin: 5px;
 }
 
 .control:hover {
