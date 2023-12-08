@@ -1,4 +1,5 @@
-import { FormattedMessage } from 'react-intl';
+import { FormattedMessage } from 'react-intl'; // 5.20.9
+
 import Header from './Header';
 import Form from './Form';
 import Footer from './Footer';

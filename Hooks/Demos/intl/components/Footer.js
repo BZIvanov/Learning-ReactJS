@@ -1,5 +1,6 @@
-import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { actionCreators } from '../store';
 import { LOCALES } from '../i18n/constants';
 
