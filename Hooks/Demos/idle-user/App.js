@@ -1,9 +1,9 @@
 import React, { useState } from 'react'; // v18.2.0
-import { useIdleTimer } from 'react-idle-timer'; // v5.4.2
 import { Button, Dialog, DialogActions, Typography } from '@mui/material'; // v5.10.14
+import { useIdleTimer } from 'react-idle-timer'; // v5.4.2
 
 /* 
-This is a demo of how to track user activity.
+This is a demo of how to track user activity using 3rd party package react-idle-timer.
 
 Some keypoints:
 - if the user was inactive for some duration of time, prompt him with dialog
