@@ -1,9 +1,10 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import App from './App';
+import React from 'react'; // 17.0.2
+import ReactDOM from 'react-dom'; // 17.0.2
 // we need the Provider to make the connection between our app and redux
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
+import { createStore } from 'redux'; // 4.1.1
+import { Provider } from 'react-redux'; // 7.2.4
+
+import App from './App';
 import reducer from './store/reducer';
 
 // we create the store before our application and provide the reducer
