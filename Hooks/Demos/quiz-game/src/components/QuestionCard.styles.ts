@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'; // 5.2.1
 
 export const Wrapper = styled.div`
   max-width: 1100px;
