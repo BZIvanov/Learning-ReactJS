@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
-import { v4 as uuidv4 } from 'uuid';
-import 'bootstrap/dist/css/bootstrap.min.css';
+import { useState } from 'react';
+
 import TodoInput from './components/TodoInput';
 import TodoList from './components/TodoList';
 
-const App = () => {
+function App() {
   const [todos, setTodos] = useState([]);
   const [todo, setTodo] = useState({ id: '', title: '' });
   const [isEditMode, setIsEditMode] = useState(false);
@@ -20,7 +19,7 @@ const App = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     const newTodo = {
-      id: isEditMode ? todo.id : uuidv4(),
+      id: isEditMode ? todo.id : Math.random().toString(),
       title: todo.title,
     };
     const updatedTodos = [...todos, newTodo];
@@ -48,26 +47,26 @@ const App = () => {
   };
 
   return (
-    <div className="container">
-      <div className="row">
-        <div className="col-10 mx-auto col-md-8 mt-5">
-          <h3 className="text-capitalize text-center">todo input</h3>
-          <TodoInput
-            todo={todo.title}
-            handleChange={handleChange}
-            handleSubmit={handleSubmit}
-            isEditMode={isEditMode}
-          />
-          <TodoList
-            todos={todos}
-            clearList={clearList}
-            handleDelete={handleDelete}
-            handleEdit={handleEdit}
-          />
-        </div>
-      </div>
+    <div>
+      <h3>Todo Input</h3>
+      <TodoInput
+        todo={todo.title}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        isEditMode={isEditMode}
+      />
+
+      <hr />
+
+      <h3>Todo List</h3>
+      <TodoList
+        todos={todos}
+        clearList={clearList}
+        handleDelete={handleDelete}
+        handleEdit={handleEdit}
+      />
     </div>
   );
-};
+}
 
 export default App;

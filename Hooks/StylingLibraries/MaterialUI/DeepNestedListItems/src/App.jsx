@@ -7,6 +7,7 @@ import {
   Collapse,
 } from '@mui/material';
 import { ExpandLess, ExpandMore } from '@mui/icons-material';
+
 import data from './data';
 
 const App = () => {
