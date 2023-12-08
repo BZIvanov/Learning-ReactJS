@@ -1,6 +1,7 @@
 import { useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
 import { bindActionCreators } from 'redux';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { actionCreators } from './store';
 import { RootState } from './store/reducers';
 

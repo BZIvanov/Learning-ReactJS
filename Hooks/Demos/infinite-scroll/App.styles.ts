@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled from 'styled-components'; // 5.2.1
 
 export const Content = styled.div`
   display: grid;

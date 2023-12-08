@@ -1,5 +1,6 @@
 // connect is hoc which is a function which returns function
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; // 7.2.4
+
 import Person from './Person';
 import PersonForm from './PersonForm';
 import * as actionTypes from '../store/action-types';
