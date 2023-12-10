@@ -1,6 +1,6 @@
 import { Link, useParams } from 'react-router-dom';
 
-import { useGetPostQuery } from '../features/postsApi/postsApiSlice';
+import { useGetPostQuery } from '../../app/services/posts';
 
 function Posts() {
   const { postId } = useParams();

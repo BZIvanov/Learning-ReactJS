@@ -4,15 +4,17 @@ import {
   useSelector as useTypedSelector,
 } from 'react-redux'; // 9.0.2
 
-import { apiSlice } from '../features/api/apiSlice';
+import { api } from './services/api';
+import posts from '../features/posts/postsSlice';
 
 export const createStore = (options = {}) => {
   return configureStore({
     reducer: {
-      [apiSlice.reducerPath]: apiSlice.reducer,
+      [api.reducerPath]: api.reducer,
+      posts,
     },
     middleware: (getDefaultMiddleware) =>
-      getDefaultMiddleware().concat(apiSlice.middleware),
+      getDefaultMiddleware().concat(api.middleware),
     devTools: process.env.NODE_ENV !== 'production',
     ...options,
   });
