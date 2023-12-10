@@ -1,7 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom';
 
-import Posts from '../components/Posts';
-import Post from '../components/Post';
+import Posts from '../features/posts/Posts';
+import Post from '../features/posts/Post';
 
 export const router = createBrowserRouter([
   {

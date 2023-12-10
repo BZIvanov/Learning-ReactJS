@@ -1,14 +1,14 @@
-import { apiSlice } from '../api/apiSlice';
+import { api } from './api';
 
-export const postsApiSlice = apiSlice.injectEndpoints({
-  endpoints: (builder) => ({
-    getPosts: builder.query({
+export const postsApi = api.injectEndpoints({
+  endpoints: (build) => ({
+    getPosts: build.query({
       query: () => ({
         url: '/posts',
         keepUnusedDataFor: 5,
       }),
     }),
-    getPost: builder.query({
+    getPost: build.query({
       query: (postId) => ({
         url: `/posts/${postId}`,
         keepUnusedDataFor: 5,
@@ -18,4 +18,4 @@ export const postsApiSlice = apiSlice.injectEndpoints({
 });
 
 // use + getPosts (capitalized) + Query -> the pattern to create the variable names
-export const { useGetPostsQuery, useGetPostQuery } = postsApiSlice;
+export const { useGetPostsQuery, useGetPostQuery } = postsApi;
