@@ -1,4 +1,5 @@
-import { shallow } from 'enzyme';
+import { shallow } from 'enzyme'; // 3.11.0
+
 import App from './App';
 import CakesList from './components/CakesList';
 
