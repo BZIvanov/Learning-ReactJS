@@ -5,12 +5,14 @@ export const postsApi = api.injectEndpoints({
     getPosts: build.query({
       query: () => ({
         url: '/posts',
+        method: 'GET',
         keepUnusedDataFor: 5,
       }),
     }),
     getPost: build.query({
       query: (postId) => ({
         url: `/posts/${postId}`,
+        method: 'GET',
         keepUnusedDataFor: 5,
       }),
     }),
