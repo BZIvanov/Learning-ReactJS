@@ -1,9 +1,6 @@
 # Hooks
 
-1. Hooks have to be placed on the top level of the component, not nested in something. For example do not use in another function or in a if statement.
-2. Custom hooks - naming must always start with use... Custom hooks work in a way that they provide us with our custom logic, meaning that every component using our custom hook gets individual snapshot of the hook, so using the same hook it is different for each component.
-
----
+Info and examples of built-in hooks.
 
 ## useState hook
 
@@ -13,10 +10,10 @@
 4. For the set functions returned as second parameter from useState, we can get the previous state as function callback, where we will get the previous state as function parameter.
 
 ```javascript
-import React, { useState } from 'react';
+import { useState } from "react";
 
 const Todo = (props) => {
-  const [todoName, setTodoName] = useState('');
+  const [todoName, setTodoName] = useState("");
   const [todoList, setTodoList] = useState([]);
 
   const inputChangeHandler = (event) => {
@@ -30,7 +27,7 @@ const Todo = (props) => {
 
   return (
     <div>
-      <input type='text' value={todoName} onChange={inputChangeHandler} />
+      <input type="text" value={todoName} onChange={inputChangeHandler} />
       <button onClick={todoAddHandler}>Add</button>
     </div>
   );
@@ -50,14 +47,14 @@ export default Todo;
 5. If no second argument, useEffect will run on every component render.
 
 ```javascript
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const Todo = (props) => {
   const [todoList, setTodoList] = useState([]);
 
   // if using async/await don't use async on the next line. Use another function inside
   useEffect(() => {
-    axios.get('https://some-url/todos').then((res) => {
+    axios.get("https://some-url/todos").then((res) => {
       setTodoList(res);
     });
   }, []);
@@ -76,13 +73,13 @@ export default Todo;
 6. As useState we can have multiple useEffects in a component.
 
 ```javascript
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from "react";
 
 const Todo = (props) => {
   const [todoList, setTodoList] = useState([]);
 
   useEffect(() => {
-    axios.get('https://some-url/todos').then((res) => {
+    axios.get("https://some-url/todos").then((res) => {
       setTodoList(res);
     });
     return () => {
@@ -91,7 +88,7 @@ const Todo = (props) => {
       // if no dependency array it will run on every update cycle
       // if we have some parameter in our watch array it will run after change allowing us to the some follow up action
       console.log(
-        'I will be ran before the get request, exception is only the very first render of the component'
+        "I will be ran before the get request, exception is only the very first render of the component"
       );
     };
   }, [todoList]);
@@ -115,7 +112,7 @@ export default Todo;
 
 ```javascript
 // folder: src/context/context.js or something like that, up to you
-import { createContext } from 'react';
+import { createContext } from "react";
 
 const authContext = createContext();
 
@@ -126,8 +123,7 @@ export default authContext;
    In this example we will provide for the whole app in App.js file
 
 ```javascript
-import React from 'react';
-import AuthContext from './context/context';
+import AuthContext from "./context/context";
 
 function App() {
   return (
@@ -144,8 +140,8 @@ export default App;
    Here we take the data in a component in our app where we need to use the context data.
 
 ```javascript
-import React, { useContext } from 'react';
-import AuthContext from '../../../context/context';
+import { useContext } from "react";
+import AuthContext from "../../../context/context";
 
 const LoginForm = (props) => {
   const aContext = useContext(AuthContext);
@@ -167,16 +163,16 @@ export default LoginForm;
 UseReducer is good alternative to useState, when we have multiple different states, which are related to each other, like form inputs for example.
 
 ```javascript
-import React, { useEffect, useReducer } from 'react';
+import { useEffect, useReducer } from "react";
 
 // the component will be rerendered, whenever the reducer returns new state
 const todoListReducer = (state, action) => {
   switch (action.type) {
-    case 'ADD':
+    case "ADD":
       return state.concat(action.payload);
-    case 'SET':
+    case "SET":
       return action.payload;
-    case 'REMOVE':
+    case "REMOVE":
       return state.filter((todo) => todo.id !== action.payload);
     default:
       return state;
@@ -189,8 +185,8 @@ const Todos = (props) => {
   const [todoList, dispatch] = useReducer(todoListReducer, []);
 
   useEffect(() => {
-    axios.get('https://some-url/todos').then((res) => {
-      dispatch({ type: 'SET', payload: res });
+    axios.get("https://some-url/todos").then((res) => {
+      dispatch({ type: "SET", payload: res });
     });
   }, [item]);
 };
@@ -203,7 +199,7 @@ export default Todos;
 With useRef we can get refference to some element and store the reference in a variable by specifing to which element with ref attribute. To get the actual element we must use the .current method and then in this example the value comes from the default value attribute on the input element.
 
 ```javascript
-import React, { useRef } from 'react';
+import { useRef } from "react";
 
 const myEl = useRef();
 
@@ -213,7 +209,7 @@ const handleIt = (e) => {
 
 return (
   <>
-    <input ref={myEl} type='text' />
+    <input ref={myEl} type="text" />
     <button onClick={handleIt}>Click me</button>
   </>
 );
