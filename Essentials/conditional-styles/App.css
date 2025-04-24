@@ -1,0 +1,8 @@
+.employee {
+  display: flex;
+  gap: 10px;
+}
+
+.is-manager {
+  font-weight: bold;
+}
