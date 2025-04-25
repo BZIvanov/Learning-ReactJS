@@ -10,3 +10,4 @@ Contains basic react learning examples. In this examples, we are using React v19
 4. **props** - providing component props
 5. **children** - children prop. Also example of using `onClick` event
 6. **conditional-styles** - using css styles conditionally and rendering list of items
+7. **dynamic-element** - providing element as prop

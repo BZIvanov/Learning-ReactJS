@@ -1,11 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 
 function App() {
-  // useState can accept both number and string types
-  const [rating, setRating] = useState<number | string>(1);
+  const [rating, setRating] = useState<string>("average");
 
   const updateRating = () => {
-    setRating('good');
+    setRating("good");
   };
 
   return (
