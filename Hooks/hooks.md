@@ -2,42 +2,6 @@
 
 Info and examples of built-in hooks.
 
-## useState hook
-
-1. useState takes as an argument the initial state. Initial state could be anything like array, object, string, number, boolean etc.
-2. useState returns 2 values. The first is the current state and the second is a function with which we can update the state.
-3. In a component we can use useState multiple times and it is recomended every data to be in a different useState, because different states in a single useState are not merged.
-4. For the set functions returned as second parameter from useState, we can get the previous state as function callback, where we will get the previous state as function parameter.
-
-```javascript
-import { useState } from "react";
-
-const Todo = (props) => {
-  const [todoName, setTodoName] = useState("");
-  const [todoList, setTodoList] = useState([]);
-
-  const inputChangeHandler = (event) => {
-    setTodoName(event.target.value);
-  };
-  const todoAddHandler = () => {
-    setTodoList((prevTodos) => {
-      return [...prevTodos, todoName];
-    });
-  };
-
-  return (
-    <div>
-      <input type="text" value={todoName} onChange={inputChangeHandler} />
-      <button onClick={todoAddHandler}>Add</button>
-    </div>
-  );
-};
-
-export default Todo;
-```
-
----
-
 ## useEffect hook
 
 1. useEffect is used any side effects like http requests for example.
