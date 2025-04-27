@@ -5,3 +5,4 @@ Contains examples of some of the built-in React hooks. For more info read the of
 ## Content
 
 1. **use-state**
+2. **use-effect**

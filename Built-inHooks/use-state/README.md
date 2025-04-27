@@ -39,3 +39,66 @@ const App = () => {
 
 export default App;
 ```
+
+## Derived state
+
+**Avoid storing values in state if they can be computed from existing state or props.** This avoids unnecessary state updates, keeps your code simpler, and prevents bugs. **Derived state** should be calculated on the fly inside the render, not stored separately with `useState`, unless absolutely necessary.
+
+### Example
+
+Instead of:
+
+```tsx
+const [items, setItems] = useState([]);
+// You don't need itemsCount! It's just items.length
+const [itemsCount, setItemsCount] = useState(0);
+```
+
+Do:
+
+```tsx
+const itemsCount = items.length;
+```
+
+This way, React always shows the correct count without extra state to manage!
+
+## Bad practice example: mutating state
+
+```tsx
+import { useState } from "react";
+
+const App = () => {
+  const [numbers, setNumbers] = useState<number[]>([1, 2, 3]);
+
+  // ❌ Bad Practice Example: Mutating state
+  const handleAddNumber = () => {
+    setNumbers((prevNumbers) => {
+      prevNumbers.push(prevNumbers.length + 1); // ❌ Directly mutating the array, DON'T do this
+      return prevNumbers;
+    });
+  };
+
+  // ✅ Correct Way: Return a new array instead of mutating
+  const handleAddNumber = () => {
+    setNumbers((prevNumbers) => [...prevNumbers, prevNumbers.length + 1]);
+  };
+
+  return (
+    <div>
+      <button onClick={handleAddNumber}>Add Number</button>
+      <ul>
+        {numbers.map((num) => (
+          <li key={num}>{num}</li>
+        ))}
+      </ul>
+    </div>
+  );
+};
+
+export default App;
+```
+
+## Content of this section
+
+1. basic-usage
+2. async-update

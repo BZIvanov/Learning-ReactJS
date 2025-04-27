@@ -1,3 +1,4 @@
+// Note that these styles are not scoped to this component and will apply globally to all the other components
 import "./App.css";
 
 const employees = [
