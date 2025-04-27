@@ -1,12 +1,17 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from "react";
 
 const App = () => {
-  const [specialRowClassName, setSpecialRowClassName] = useState();
-  const specialRowRef = useRef(null);
+  const [specialRowClassName, setSpecialRowClassName] = useState<string>("");
+  const specialRowRef = useRef<HTMLLIElement>(null);
 
   useEffect(() => {
     // with closest method we can find another item in a non-fragile way, for example if our dom structure changes
-    setSpecialRowClassName(specialRowRef.current.closest('tr').className);
+    if (specialRowRef.current) {
+      const closestTr = specialRowRef.current.closest("tr");
+      if (closestTr) {
+        setSpecialRowClassName(closestTr.className);
+      }
+    }
   }, []);
 
   return (
@@ -23,7 +28,7 @@ const App = () => {
           </tr>
         </thead>
         <tbody>
-          <tr className='first-row'>
+          <tr className="first-row">
             <td>
               <div>
                 <h3>Title1</h3>
@@ -43,7 +48,7 @@ const App = () => {
               </div>
             </td>
           </tr>
-          <tr className='second-row'>
+          <tr className="second-row">
             <td>
               <div>
                 <h3>Title3</h3>

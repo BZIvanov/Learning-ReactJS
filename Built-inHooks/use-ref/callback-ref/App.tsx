@@ -1,7 +1,7 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 const App = () => {
-  const inputRef = useRef(null);
+  const inputRef = useRef<HTMLInputElement>(null);
 
   return (
     <div>
@@ -10,7 +10,7 @@ const App = () => {
           inputRef.current = el;
         }}
       />
-      <button onClick={() => console.log(inputRef.current.value)}>
+      <button onClick={() => console.log(inputRef.current?.value)}>
         Click me
       </button>
     </div>

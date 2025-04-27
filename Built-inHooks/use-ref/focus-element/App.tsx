@@ -1,15 +1,17 @@
-import { useRef } from 'react';
+import { useRef } from "react";
 
 const App = () => {
-  const textFieldRef = useRef();
+  const textFieldRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
     const textFieldElement = textFieldRef.current;
 
-    if (textFieldElement && textFieldElement.value) {
-      console.log(textFieldElement.value);
-    } else {
-      textFieldElement.focus();
+    if (textFieldElement) {
+      if (textFieldElement.value) {
+        console.log(textFieldElement.value);
+      } else {
+        textFieldElement.focus();
+      }
     }
   };
 
