@@ -1,13 +1,16 @@
-import { useRef } from 'react';
-import CustomInput from './CustomInput';
+import { useRef } from "react";
+
+import EnhancedInput from "./EnhancedInput";
 
 const App = () => {
-  const textFieldRef = useRef();
+  const textFieldRef = useRef<HTMLInputElement>(null);
 
   const handleClick = () => {
     const textFieldElement = textFieldRef.current;
 
-    if (textFieldElement && textFieldElement.value) {
+    if (!textFieldElement) return;
+
+    if (textFieldElement.value) {
       console.log(textFieldElement.value);
     } else {
       textFieldElement.focus();
@@ -16,7 +19,7 @@ const App = () => {
 
   return (
     <div>
-      <CustomInput type='text' ref={textFieldRef} />
+      <EnhancedInput type="text" ref={textFieldRef} />
       <button onClick={handleClick}>Click me</button>
     </div>
   );

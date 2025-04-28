@@ -6,3 +6,4 @@
 2. finding-element
 3. callback-ref
 4. audio-element
+5. merge-refs
