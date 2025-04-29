@@ -64,6 +64,8 @@ This way, React always shows the correct count without extra state to manage!
 
 ## Bad practice example: mutating state
 
+- Work with caution with **reference types**. For example when working with arrays or objects.
+
 ```tsx
 import { useState } from "react";
 

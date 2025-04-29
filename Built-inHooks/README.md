@@ -2,7 +2,7 @@
 
 Contains examples of some of the built-in React hooks. For more info read the official docs [here](https://react.dev/reference/react/hooks).
 
-## Content
+## Content of this section
 
 1. **use-state**
 2. **use-effect**
