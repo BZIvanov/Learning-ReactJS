@@ -1,4 +1,4 @@
-import { useCounter } from '../contexts/CounterContext';
+import { useCounter } from "../counter/useCounter";
 
 function First() {
   const { count, increment, decrement } = useCounter();
