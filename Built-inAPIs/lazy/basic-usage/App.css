@@ -2,18 +2,13 @@
   text-align: center;
 }
 
-.App-header {
-  background-color: #282c34;
-  color: white;
-}
-
 button {
   padding: 20px;
   border: 2px solid blue;
   margin: 10px;
   font-size: 30px;
   cursor: pointer;
-  background: yellow;
+  background-color: yellow;
 }
 
 .disabled {
