@@ -6,6 +6,9 @@ Contains examples of some of the built-in React hooks. For more info read the of
 
 1. **use-state**
 2. **use-effect**
-3. **use-ref**
-4. **use-imperative-handle**
-5. **use-memo**
+3. **use-layout-effect**
+4. **use-ref**
+5. **use-imperative-handle**
+6. **use-memo**
+7. **use-callback**
+8. **use-reducer**

@@ -1,0 +1,3 @@
+# useCallback hook
+
+One good usage of useCallback is with useEffect. For example if we have dependency in useEffect, which is a function, everytime the component which holds the function is rerendered, the function will be recreated and will be a new one. So we will end up with useEffect being called again and again. With the help of useCallback we can put our function in a useCallback hook and we will keep it the same through different rerenders and so we can safely use a function as dependency on our useEffect. This solution of course will also help with any reference type value, so we can make sure it will not be recreated everytime.
