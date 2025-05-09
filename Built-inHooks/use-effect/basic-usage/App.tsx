@@ -8,12 +8,15 @@ interface Post {
 
 const App = () => {
   const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState<boolean>(true);
+  const [loading, setLoading] = useState<boolean>(false);
   const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     const fetchPosts = async () => {
       try {
+        setLoading(true);
+        setError(null);
+
         const response = await fetch(
           "https://jsonplaceholder.typicode.com/posts"
         );
