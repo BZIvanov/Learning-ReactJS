@@ -44,6 +44,14 @@
   color: white;
 }
 
+.App-footer button:hover {
+  cursor: pointer;
+}
+
+.App-footer button:disabled {
+  cursor: not-allowed;
+}
+
 .App-footer ul {
   display: flex;
   justify-content: center;
