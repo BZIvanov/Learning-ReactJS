@@ -9,7 +9,9 @@ This repository contains learning materials for React.js.
 3. **Built-inHooks** - hooks built-in React
 4. **Built-inAPIs** - APIs built-in React
 5. **CustomHooks** - custom hooks
-6. **ComponentPatterns** - component design patterns
-7. **ExternalTools** - external tools
-8. **Hooks** - contains info and example for hooks based apps
-9. **Projects** - simple demo projects
+6. **Forms** - working with forms
+7. **ComponentPatterns** - component design patterns
+8. **ExternalTools** - external tools
+9. **Hooks** - contains info and example for hooks based apps
+10. **Projects** - simple demo projects
+11. **DemoProjects** - contains small demo projects
