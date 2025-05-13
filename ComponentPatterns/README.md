@@ -4,3 +4,4 @@
 
 - **component-composition**
 - **resetting-component** - resetting component using `key` prop
+- **infinite-loading**
