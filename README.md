@@ -11,8 +11,9 @@ This repository contains learning materials for React.js.
 5. **CustomHooks** - custom hooks
 6. **Forms** - working with forms
 7. **ComponentPatterns** - component design patterns
-8. **ExternalLibraries** - small demos for specific uses cases with external libraries
-9. **ExternalTools** - external tools
-10. **Hooks** - contains info and example for hooks based apps
-11. **Projects** - simple demo projects
-12. **DemoProjects** - contains small demo projects
+8. **Redux** - state management with Redux
+9. **ExternalLibraries** - small demos for specific uses cases with external libraries
+10. **ExternalTools** - external tools
+11. **Hooks** - contains info and example for hooks based apps
+12. **Projects** - simple demo projects
+13. **DemoProjects** - contains small demo projects
