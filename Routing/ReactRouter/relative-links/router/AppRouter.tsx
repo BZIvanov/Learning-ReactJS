@@ -1,4 +1,4 @@
-import { BrowserRouter } from "react-router"; // 7.6.0
+import { BrowserRouter } from "react-router";
 
 import AppRoutes from "./AppRoutes";
 

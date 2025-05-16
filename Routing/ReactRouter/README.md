@@ -4,3 +4,4 @@
 
 - **basic-navigation**
 - **custom-link-state**
+- **relative-links**
