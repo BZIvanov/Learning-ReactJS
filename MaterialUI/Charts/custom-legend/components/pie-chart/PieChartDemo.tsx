@@ -1,13 +1,13 @@
-import { useMemo } from 'react';
-import { Box } from '@mui/material';
-import { PieChart, pieArcLabelClasses } from '@mui/x-charts/PieChart';
-import { mangoFusionPalette } from '@mui/x-charts/colorPalettes';
+import { useMemo } from "react";
+import { Box } from "@mui/material";
+import { PieChart, pieArcLabelClasses } from "@mui/x-charts/PieChart";
+import { mangoFusionPalette } from "@mui/x-charts/colorPalettes";
 
-import CustomLegend from '../common/CustomLegend';
-import useContainerSize from '../../hooks/useContainerSize';
-import { generateData, generateExtendedPalette } from './generateData';
+import CustomLegend from "../common/CustomLegend";
+import { useContainerSize } from "../../hooks/useContainerSize";
+import { generateData, generateExtendedPalette } from "./generateData";
 
-const PIES_COUNT = 2;
+const PIES_COUNT = 5;
 
 const PieChartDemo = () => {
   const [{ width }, widthRef] = useContainerSize();
@@ -19,13 +19,13 @@ const PieChartDemo = () => {
   const colors =
     pieLabels.length > 10
       ? generateExtendedPalette({
-          palette: mangoFusionPalette('light'),
+          palette: mangoFusionPalette("light"),
           totalColors: pieLabels.length,
         })
-      : mangoFusionPalette('light');
+      : mangoFusionPalette("light");
 
   return (
-    <Box ref={widthRef} sx={{ backgroundColor: '#eeeeee', padding: 2 }}>
+    <Box ref={widthRef} sx={{ backgroundColor: "#eeeeee", padding: 2 }}>
       <PieChart
         series={[
           {
@@ -37,23 +37,21 @@ const PieChartDemo = () => {
             startAngle: 0,
             endAngle: 360,
             arcLabel: (params) => {
-              return `${params.formattedValue}` ?? '';
+              return params.formattedValue ?? "";
             },
             arcLabelMinAngle: 45,
           },
         ]}
         width={width}
         height={250}
-        slotProps={{
-          legend: {
-            hidden: true,
-          },
-        }}
+        hideLegend={true}
         colors={colors}
         margin={{ left: 80 }}
         sx={{
           [`& .${pieArcLabelClasses.root}`]: {
-            fill: 'white',
+            fill: "white",
+            fontSize: 12,
+            fontWeight: "bold",
           },
         }}
       />
