@@ -13,8 +13,9 @@ This repository contains learning materials for React.js.
 7. **ComponentPatterns** - component design patterns
 8. **Redux** - state management with Redux
 9. **Routing** - routing libraries
-10. **ExternalLibraries** - small demos for specific uses cases with external libraries
-11. **ExternalTools** - external tools
-12. **Hooks** - contains info and example for hooks based apps
-13. **Projects** - simple demo projects
-14. **DemoProjects** - contains small demo projects
+10. **MaterialUI** - styling library
+11. **ExternalLibraries** - small demos for specific uses cases with external libraries
+12. **ExternalTools** - external tools
+13. **Hooks** - contains info and example for hooks based apps
+14. **Projects** - simple demo projects
+15. **DemoProjects** - contains small demo projects

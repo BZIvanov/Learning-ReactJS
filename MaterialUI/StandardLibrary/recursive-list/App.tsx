@@ -1,23 +1,23 @@
-import { useState, Fragment } from 'react';
+import { useState, Fragment } from "react";
 import {
   List,
   ListSubheader,
   ListItemButton,
   ListItemText,
   Collapse,
-} from '@mui/material';
-import { ExpandLess, ExpandMore } from '@mui/icons-material';
+} from "@mui/material"; // 7.1.0
+import { ExpandLess, ExpandMore } from "@mui/icons-material"; // 7.1.0
 
-import data from './data';
+import data, { type ListItemData } from "./data";
 
 const App = () => {
-  const [open, setOpen] = useState({});
+  const [open, setOpen] = useState<Record<string, boolean>>({});
 
-  const handleClick = (id) => {
+  const handleClick = (id: string) => {
     setOpen((prev) => ({ ...prev, [id]: !prev[id] }));
   };
 
-  const renderRow = (listItem, level) => {
+  const renderRow = (listItem: ListItemData, level: number) => {
     const hasNestedItems = listItem.items.length > 0;
 
     return (
@@ -32,8 +32,8 @@ const App = () => {
         </ListItemButton>
 
         {hasNestedItems && (
-          <Collapse in={open[listItem.id]} timeout='auto' unmountOnExit={true}>
-            <List component='div'>
+          <Collapse in={open[listItem.id]} timeout="auto" unmountOnExit={true}>
+            <List component="div">
               {listItem.items.map((nestedListItem) => {
                 return renderRow(nestedListItem, level + 1);
               })}
@@ -46,10 +46,10 @@ const App = () => {
 
   return (
     <List
-      sx={{ width: '100%', maxWidth: 360, bgcolor: 'lightgray' }}
-      component='nav'
+      sx={{ width: "100%", maxWidth: 360, bgcolor: "lightgray" }}
+      component="nav"
       subheader={
-        <ListSubheader component='div'>Nested List Items</ListSubheader>
+        <ListSubheader component="div">Nested List Items</ListSubheader>
       }
     >
       {data.map((row) => renderRow(row, 0))}

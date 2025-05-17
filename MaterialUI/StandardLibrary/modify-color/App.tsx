@@ -1,8 +1,7 @@
-import { Box, Typography, lighten, darken } from '@mui/material';
+import { Box, Typography, lighten, darken } from "@mui/material"; // 7.1.0
 
 const App = () => {
   // with lighten and darken method we can provide some color and then percantage with which to modify the color
-
   return (
     <Box>
       <Typography
