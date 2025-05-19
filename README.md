@@ -16,5 +16,6 @@ This repository contains learning materials for React.js.
 10. **MaterialUI** - styling library
 11. **ExternalLibraries** - small demos for specific uses cases with external libraries
 12. **ExternalTools** - external tools
-13. **Projects** - simple demo projects
-14. **DemoProjects** - contains small demo projects
+13. **Animations** - animations
+14. **Projects** - simple demo projects
+15. **DemoProjects** - contains small demo projects

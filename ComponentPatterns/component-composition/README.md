@@ -1,5 +1,7 @@
 # Component composition
 
+A broad principle in React where you build complex UIs by combining simpler components together.
+
 Component composition is useful technique to deal with problems such as **props drilling**.
 It is achieved by taking advantage of using **children or props**.
 
