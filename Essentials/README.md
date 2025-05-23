@@ -2,6 +2,50 @@
 
 Contains basic react learning examples. In this examples, we are using React v19 + TypeScript.
 
+## Virtual DOM
+
+The **Virtual DOM (VDOM)** is a **lightweight in-memory representation** of the actual DOM (Document Object Model) in the browser.
+
+- It's a JavaScript object that mirrors the real DOM.
+- React uses it to **track changes** before updating the real DOM.
+- Updating the VDOM is **much faster** than manipulating the real DOM directly.
+
+### How It Works – Step by Step
+
+React uses a **diffing algorithm** to minimize expensive DOM operations. Here's how:
+
+#### 1. Initial Render
+
+- When your app loads, React creates a **Virtual DOM tree** that represents your UI.
+- It then **renders** this tree to the actual DOM.
+
+#### 2. Re-render on State/Prop Change
+
+- When state or props change, React:
+  - Builds a **new Virtual DOM** (representing the updated UI).
+  - Compares it to the **previous Virtual DOM** (using a process called _reconciliation_).
+
+#### 3. Diffing
+
+- React compares the **new** and **old** Virtual DOMs node by node.
+- It identifies what has changed — this is called the **"diff."**
+
+#### 4. Efficient DOM Updates
+
+- React updates **only the parts of the real DOM** that actually changed.
+- This minimizes reflows, repaints, and boosts performance.
+
+### Why not use the real DOM directly?
+
+- The real DOM is **slow to update**, especially in large apps.
+- Direct DOM manipulations cause:
+  - Performance bottlenecks
+  - Inconsistent UI states
+- React's Virtual DOM improves performance by:
+  - Reducing direct writes to the DOM
+  - Batch processing changes
+  - Skipping unnecessary updates
+
 ## Events
 
 Click [here](https://reactjs.org/docs/events.html#supported-events) for a list of events you can use
