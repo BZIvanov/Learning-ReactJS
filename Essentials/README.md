@@ -69,3 +69,4 @@ And these variables don't provide security so you should never put sensitive inf
 5. **children** - children prop. Also example of using `onClick` event
 6. **conditional-styles** - using css styles conditionally and rendering list of items
 7. **dynamic-element** - providing element as prop
+8. **rendering-lists** - providing arrays as values to be rendered
