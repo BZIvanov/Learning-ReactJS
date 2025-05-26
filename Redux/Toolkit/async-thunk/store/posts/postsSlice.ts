@@ -4,7 +4,7 @@ import {
   type PayloadAction,
 } from "@reduxjs/toolkit";
 
-import type { RootState } from "../types";
+import type { RootState } from "../store";
 
 const endpoint = "https://jsonplaceholder.typicode.com/posts";
 

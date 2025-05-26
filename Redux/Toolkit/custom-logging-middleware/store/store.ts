@@ -1,11 +1,13 @@
-import { configureStore } from "@reduxjs/toolkit"; // 2.8.2
+import { configureStore } from "@reduxjs/toolkit";
 
+import { logger } from "./middleware/logger";
 import counterReducer from "./counter/counterSlice";
 
 export const store = configureStore({
   reducer: {
     counter: counterReducer,
   },
+  middleware: (getDefaultMiddleware) => getDefaultMiddleware().concat(logger),
   devTools: process.env.NODE_ENV !== "production",
 });
 

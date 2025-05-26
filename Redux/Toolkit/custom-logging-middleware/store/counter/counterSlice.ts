@@ -1,8 +1,6 @@
 import { createSlice } from "@reduxjs/toolkit";
 import type { PayloadAction } from "@reduxjs/toolkit";
 
-// Type-only imports (import type) are erased at runtime, so they don’t cause circular dependency issues because they don’t load or execute the module they reference.
-// So we can import RootState type from store without causing circular dependency issues.
 import type { RootState } from "../store";
 
 export interface CounterState {
@@ -31,7 +29,6 @@ export const counterSlice = createSlice({
 
 export const { increment, decrement, incrementByAmount } = counterSlice.actions;
 
-// selector function which will give us the value count without writing state.counter.value everywhere in the application, where we need the counter value
 export const selectCount = (state: RootState) => state.counter.value;
 
 export default counterSlice.reducer;
