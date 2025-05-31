@@ -18,6 +18,8 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
+      // Redux Toolkit allows us to write "mutating" logic in reducers. It uses the Immer library to convert this into safe, immutable updates.
+      // Immer allows us to write code that "mutates" the state, but it actually produces a new state object.
       state.value += 1;
     },
     decrement: (state) => {
