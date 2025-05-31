@@ -6,3 +6,4 @@
 - **compound-components**
 - **resetting-component** - resetting component using `key` prop
 - **infinite-loading**
+- **polymorphic-components**

@@ -1,3 +1,4 @@
+// type PropsWithChildren is to specify, that PropsWithChildren is only used as a type and it should be completely excluded from the compiled javascript files
 import { useState, type PropsWithChildren } from "react";
 
 import { CounterContext } from "./CounterContext";
