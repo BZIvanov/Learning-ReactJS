@@ -132,6 +132,110 @@ Each time React renders `MyComponent`, it **creates or updates a component insta
 | Role in rendering | Describes what to render       | Produces what to render                             |
 | Tied to the DOM?  | Not directly                   | Yes — generates output React uses to update DOM     |
 
+## Reconciliation
+
+**Reconciliation** is the **process React uses to determine what has changed in the UI** and **update the DOM efficiently**.
+
+When your component’s state or props change, React:
+
+1. Renders a new **React Element tree** (i.e. a description of the UI).
+2. Compares it with the **previous element tree**.
+3. Determines the **minimum number of changes** needed to update the actual DOM.
+4. Applies those changes.
+
+This process is optimized for **performance** and is central to React’s **virtual DOM** model.
+
+---
+
+### How it works?
+
+1. **You write JSX** and React creates a **React Element**.
+2. On an update (e.g., `setState` or prop change), React:
+   - Calls the component again to get the new tree.
+   - **Compares** the new tree to the previous one.
+3. React uses a **diffing algorithm** to identify:
+   - Which elements can be reused
+   - Which need to be removed, added, or updated
+4. React updates the **actual DOM** based on this diff.
+
+---
+
+### Optimizations in React’s Reconciliation Algorithm
+
+React uses **heuristics** to make reconciliation fast:
+
+- **Elements with the same type** (e.g. `<div>` → `<div>`) are **reused**.
+- **Keys** help React match elements in lists for efficient updates.
+- React **does not deeply diff trees**; instead, it makes assumptions:
+  - Different component types → unmount + remount.
+  - Same component type → props/state diff + update.
+
+---
+
+### 🧠 Summary Table
+
+| Term            | Description                                                       |
+| --------------- | ----------------------------------------------------------------- |
+| Reconciliation  | The process of diffing and updating the UI in response to changes |
+| Virtual DOM     | React’s in-memory representation of the UI                        |
+| Diffing         | Comparing old and new trees to find minimal changes               |
+| Key (in lists)  | Helps React track elements across updates for better performance  |
+| Concurrent Mode | Allows React to pause/resume rendering work                       |
+
+## What Is React Fiber?
+
+**Fiber** is the **reimplementation of React’s reconciliation algorithm**, introduced in **React 16**.
+
+It is **not a separate concept**, but the **core engine** that **enables modern reconciliation features** like:
+
+- Interruptible rendering (Concurrent Mode)
+- Scheduling updates with different priorities
+- Pausing and resuming rendering
+- Better error handling and recovery
+- Hooks
+
+React Fiber replaces the older "stack-based" reconciler (used in React ≤15) with a **linked-list tree structure** that gives React **fine-grained control** over the rendering process.
+
+---
+
+## Fiber and Reconciliation: The Connection
+
+- **Reconciliation** is the _process_.
+- **Fiber** is the _implementation of that process_.
+
+When React reconciles two trees (old and new), it walks through **Fiber nodes** — which are JavaScript objects representing elements in the UI tree — and determines what to update.
+
+Each **Fiber node** contains:
+
+- The component/function
+- Its props/state
+- Pointers to child/sibling/parent fibers
+- Metadata for scheduling (e.g., priority)
+
+> So, reconciliation is the _strategy_, and Fiber is the _data structure and engine_ used to carry it out.
+
+---
+
+## Why Fiber Matters
+
+React heavily relies on Fiber to enable:
+
+- **Concurrent rendering**: React can pause and resume work at will.
+- **Selective hydration** in React Server Components.
+- **Transitions** (`useTransition`) that defer work without blocking user interactions.
+- **Rendering prioritization**: urgent vs background updates.
+
+Without **Fiber**, none of this would be possible — it gives React the ability to **render asynchronously**, **break work into units**, and **optimize updates** for modern web performance needs.
+
+---
+
+## Summary Table: Fiber vs Reconciliation
+
+| Term               | Description                                                               |
+| ------------------ | ------------------------------------------------------------------------- |
+| **Reconciliation** | The process of comparing React trees to update the UI                     |
+| **Fiber**          | The internal engine/data structure React uses to implement reconciliation |
+
 ## Events
 
 Click [here](https://reactjs.org/docs/events.html#supported-events) for a list of events you can use
