@@ -42,9 +42,95 @@ React uses a **diffing algorithm** to minimize expensive DOM operations. Here's 
   - Performance bottlenecks
   - Inconsistent UI states
 - React's Virtual DOM improves performance by:
+
   - Reducing direct writes to the DOM
   - Batch processing changes
   - Skipping unnecessary updates
+
+## React Element vs Component Instance
+
+### React Element
+
+- A **React Element** is a **plain JavaScript object** that describes what React should render.
+- Created when you write JSX or call `React.createElement()`.
+- Does **not** contain behavior — it's a **declarative description**.
+- Think of it as a **lightweight blueprint**.
+
+#### Example
+
+```jsx
+const element = <MyComponent someProp="hello" />;
+```
+
+This is **just data** — an object like:
+
+```js
+{
+  type: MyComponent,
+  props: { someProp: "hello" },
+  // ...internal fields
+}
+```
+
+React uses this to **know what to render**, but it hasn’t run any logic yet.
+
+---
+
+### Component Instance
+
+A **component instance** refers to:
+
+- The **invocation and execution** of your component function.
+- The **hook state** and **lifecycle** managed internally by React.
+- The "live" representation of the component during rendering and updates.
+
+> Unlike in class components, **you don’t manually instantiate anything**. React does it behind the scenes when it _calls_ your function component.
+
+#### Example
+
+```jsx
+function MyComponent({ someProp }) {
+  const [count, setCount] = useState(0);
+  return <div>{count}</div>;
+}
+```
+
+Each time React renders `MyComponent`, it **creates or updates a component instance**:
+
+- Runs the function
+- Tracks `useState`, `useEffect`, etc.
+- Handles effects and updates
+
+---
+
+### 🔄 Lifecycle in React (Function Component Flow)
+
+1. JSX written:
+   ```jsx
+   <MyComponent someProp="hello" />
+   ```
+2. React creates a **React Element**:
+   ```js
+   { type: MyComponent, props: { someProp: 'hello' } }
+   ```
+3. React renders it by:
+   - **Calling the function** (`MyComponent`)
+   - Creating a **component instance internally**
+   - Tracking hooks/state/effects
+
+---
+
+### 🧠 Summary Table
+
+| Feature           | React Element                  | Component Instance                                  |
+| ----------------- | ------------------------------ | --------------------------------------------------- |
+| What is it?       | A plain object describing UI   | The execution + internal state of a component       |
+| Created by        | JSX or `React.createElement()` | React calling the function component                |
+| Is it live?       | No — it's just data            | Yes — manages state, hooks, rendering               |
+| Mutable?          | No                             | Yes (internally, via hooks)                         |
+| Has lifecycle?    | No                             | Yes (via hooks like `useEffect`, `useLayoutEffect`) |
+| Role in rendering | Describes what to render       | Produces what to render                             |
+| Tied to the DOM?  | Not directly                   | Yes — generates output React uses to update DOM     |
 
 ## Events
 
@@ -54,9 +140,9 @@ Click [here](https://reactjs.org/docs/events.html#supported-events) for a list o
 
 For details read [DOCS](https://create-react-app.dev/docs/adding-custom-environment-variables/).
 
-To use global variables create .env file. Every variable name must start with **REACT_APP**. So actual global variable will look like _REACT_APP_API_KEY_. And to access the variable in the app, use it like this _process.env.REACT_APP_API_KEY_.
+To use global variables create `.env` file. Every variable name must start with **REACT_APP**. So actual global variable will look like `REACT_APP_API_KEY`. And to access the variable in the app, use it like this `process.env.REACT_APP_API_KEY`.
 
-If you want to use global variables in your index.html you have to put the variable name in percent signs. Here is example **%REACT_APP_API_KEY%**.
+If you want to use global variables in your `index.html` you have to put the variable name in percent signs. Here is example `%REACT_APP_API_KEY%`.
 
 And these variables don't provide security so you should never put sensitive information in these varibles on the front-end.
 

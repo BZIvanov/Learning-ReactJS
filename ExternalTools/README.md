@@ -48,6 +48,8 @@ If we have the console drawer open, which shows the console in every tab in the 
 
 On there we can see how much of the code was used when running the page. This is usefull in case we want to do some optimizations.
 
+### React Developer Tools
+
 ## Scoped styles
 
 For scoped styles checkout **css modules** for React.
