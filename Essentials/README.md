@@ -236,10 +236,6 @@ Without **Fiber**, none of this would be possible — it gives React the ability
 | **Reconciliation** | The process of comparing React trees to update the UI                     |
 | **Fiber**          | The internal engine/data structure React uses to implement reconciliation |
 
-## Events
-
-Click [here](https://reactjs.org/docs/events.html#supported-events) for a list of events you can use
-
 ## Environment variables
 
 For details read [DOCS](https://create-react-app.dev/docs/adding-custom-environment-variables/).
