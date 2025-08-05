@@ -104,3 +104,4 @@ export default App;
 
 1. basic-usage
 2. async-update
+3. lazy-initialization
