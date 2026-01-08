@@ -11,13 +11,15 @@ This repository contains a curated collection of learning materials, examples, a
 5. **Built-inAPIs** - Learn about React's core APIs like `createPortal`, `lazy`, `memo`, etc.
 6. **CustomHooks** - How to create and organize your own reusable hooks.
 7. **Forms** - Managing form state, validation, and controlled/uncontrolled inputs.
-8. **ComponentPatterns** - Common and advanced patterns for building flexible, maintainable components.
-9. **Redux** - State management using Redux (with and without Redux Toolkit).
-10. **Routing** - Routing in React using libraries like `react-router`.
-11. **MaterialUI** - Styling your app using Material UI components and theming.
-12. **ExternalLibraries** - Demos showcasing useful third-party libraries for common use cases.
-13. **ExternalTools** - Tools that assist with development (e.g. linters, formatters, bundlers, testing tools).
-14. **Animations** - Adding animations to your React apps using libraries like Framer Motion or React Spring.
-15. **Testing** - Writing tests for React components using React Testing Library and Jest.
-16. **Projects** - (TODO: move these demos to DemoProjects) simple demo projects
-17. **DemoProjects** - Small self-contained demo projects demonstrating practical React usage.
+8. **Styling**
+9. **ComponentPatterns** - Common and advanced patterns for building flexible, maintainable components.
+10. **Debugging**
+11. **Redux** - State management using Redux (with and without Redux Toolkit).
+12. **Routing** - Routing in React using libraries like `react-router`.
+13. **MaterialUI** - Styling your app using Material UI components and theming.
+14. **ExternalLibraries** - Demos showcasing useful third-party libraries for common use cases.
+15. **ExternalTools** - Tools that assist with development (e.g. linters, formatters, bundlers, testing tools).
+16. **Animations** - Adding animations to your React apps using libraries like Framer Motion or React Spring.
+17. **Testing** - Writing tests for React components using React Testing Library and Jest.
+18. **Projects** - (TODO: move these demos to DemoProjects) simple demo projects
+19. **DemoProjects** - Small self-contained demo projects demonstrating practical React usage.
